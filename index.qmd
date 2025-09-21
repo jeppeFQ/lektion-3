@@ -118,6 +118,8 @@ else:
 2. Input et positivt heltal mellem 1 og 200. Output arealet på en kvadrat med en sidelængde svarende til tallet (*Hint:* Formlen er $11111111$).
 3. Brugeren giver et navn som input. Hvis navnet er ”Arthur” så output ”Har du husket dit håndklæde?”. For alle andre navne output ”Hej ” + navnet + ”!”. 
 
+# Praktisk øvelse i Position og *introduktion til notebooks*
+
 ## Programmeringsparadigmer 
 
 ---
@@ -187,7 +189,7 @@ print(f"Slutsaldo: {balance}kr")
 
 ### Funktionel Programmering
 
-I det funktionsorienterede paradigme behandles opgaven, der skal løses, som en evaluering af matematiske funktioner. Eksempler på funktionelle programmeringssprog er Scheme, Erlang, OCaml, Haskell, SML, Lisp og F#.
+I det funktionsorienterede paradigme behandles opgaven, der skal løses, som en evaluering af matematiske funktioner. Eksempler på funktionelle programmeringssprog er R, Scheme, Erlang, OCaml, Haskell, SML, Lisp og F#.
 
 ---
 
@@ -208,10 +210,6 @@ def calculate_compound_interest(principal, rate, years):
     else:
         return calculate_compound_interest(add_interest(principal, rate), rate, years - 1)
 
-# Brug af higher-order funktioner
-balances = [1000, 2000, 3000]
-with_interest = list(map(lambda x: add_interest(x, 0.05), balances))
-
 </textarea>
 <button class="run-button" onclick="runPython(document.getElementById('code1.3').value, 'output1.3')">
   <img src="resources/python-file.png" alt="Python" style="height: 50px;">
@@ -220,7 +218,7 @@ with_interest = list(map(lambda x: add_interest(x, 0.05), balances))
   <img src="resources/dust.png" alt="Python" style="height: 50px;">
 </button>
 </div>
-<div class="code-output" id="output1.1"></div>
+<div class="code-output" id="output1.3"></div>
 </div>
 
 ---
@@ -229,9 +227,8 @@ with_interest = list(map(lambda x: add_interest(x, 0.05), balances))
 <div class="code-input">
 <textarea class="python-editor" id="code1.4">
 
-print("Oprindelige beløb:", balances)
-print("Med 5% rente:", with_interest)
-print("10 års rentes rente:", calculate_compound_interest(1000, 0.05, 10))
+beløb = 1000
+print("Beløb efter 10 års rentes rente:", calculate_compound_interest(beløb, 0.05, 10))
 
 </textarea>
 <button class="run-button" onclick="runPython(document.getElementById('code1.4').value, 'output1.4')">
@@ -246,12 +243,80 @@ print("10 års rentes rente:", calculate_compound_interest(1000, 0.05, 10))
 
 ---
 
-### Objektorienteret Programmering
-
-I det objektorienterede paradigme behandles opgaven, der skal løses, ved brug af såkaldte objekter. Et objekt i programmet repræsenterer en forestilling af objektet i virkeligheden. Objekter med lignende egenskaber samles i klasser. En vigtig del af det objektorienterede paradigme er at skjule implementationen, således at objektet ligner virkeligheden, og implementationsdetaljer kan modificeres, uden at måden hvorpå objektet benyttes udefra ændres. Eksempler på programmeringssprog hvor objektorienteret programmering gør sig gældende er bl.a. Java, C++ og C#.
-
----
-
 ### Logikbaseret Programmering
 
 Endelig findes det logikbaserede paradigme. Logikbaseret programmering er, i den bredeste forstand, brugen af matematisk logik til computerprogrammering. Det mest kendte programmeringssprog hvor logikbaseret programmering gør sig gældende er Prolog.
+
+---
+
+### Objektorienteret Programmering
+
+I det objektorienterede paradigme behandles opgaven, der skal løses, ved brug af såkaldte objekter. Et objekt i programmet repræsenterer en forestilling af objektet i virkeligheden. Objekter med lignende egenskaber samles i klasser. En vigtig del af det objektorienterede paradigme er at skjule implementationen, således at objektet ligner virkeligheden, og implementationsdetaljer kan modificeres, uden at måden hvorpå objektet benyttes udefra ændres. Eksempler på programmeringssprog hvor objektorienteret programmering gør sig gældende er bl.a. Python, Java, C++ og C#.
+
+---
+
+<div class="code-container">
+<div class="code-input">
+<textarea class="python-editor" id="code1.5">
+
+class Student:
+    # Klasse-attribut (deles af alle objekter)
+    school_name = "Aalborg Universitet"
+    
+    def __init__(self, name, student_id, major):
+        # Instance-attributter (unikke for hvert objekt)
+        self.name = name
+        self.student_id = student_id
+        self.major = major
+        self.grades = []
+    
+    # Instance-metoder
+    def add_grade(self, course, grade):
+        self.grades.append({"course": course, "grade": grade})
+        print(f"{self.name} fik karakter {grade} i {course}")
+    
+    def calculate_gpa(self):
+        if not self.grades:
+            return 0
+        total = sum(grade["grade"] for grade in self.grades)
+        return total / len(self.grades)
+
+</textarea>
+<button class="run-button" onclick="runPython(document.getElementById('code1.5').value, 'output1.5')">
+  <img src="resources/python-file.png" alt="Python" style="height: 50px;">
+</button>
+<button class="reset-button" onclick="resetPythonGlobals()">
+  <img src="resources/dust.png" alt="Python" style="height: 50px;">
+</button>
+</div>
+<div class="code-output" id="output1.5"></div>
+</div>
+
+---
+
+<div class="code-container">
+<div class="code-input">
+<textarea class="python-editor" id="code1.6">
+
+# Brug af klassen
+student1 = Student("Anna Hansen", "20230001", "Datalogi")
+student2 = Student("Lars Nielsen", "20230002", "Økonomi")
+
+student1.add_grade("Python Programmering", 12)
+student1.add_grade("Matematik", 10)
+student1.add_grade("Organisatorisk-teori", 4)
+student1.add_grade("Videnskabsteori", 2)
+
+print(f"{student1.name}s karaktergennemsnit er: {student1.calculate_gpa():.1f}")
+
+</textarea>
+<button class="run-button" onclick="runPython(document.getElementById('code1.6').value, 'output1.6')">
+  <img src="resources/python-file.png" alt="Python" style="height: 50px;">
+</button>
+<button class="reset-button" onclick="resetPythonGlobals()">
+  <img src="resources/dust.png" alt="Python" style="height: 50px;">
+</button>
+</div>
+<div class="code-output" id="output1.6"></div>
+</div>
+

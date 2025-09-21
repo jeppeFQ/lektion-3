@@ -199,7 +199,7 @@ if __name__ == "__main__":
 
 ## Programmeringsparadigmer 
 
-::: {style="font-size: 0.5em;"}
+::: {style="font-size: 0.38em;"}
 
 | **Language** | **Paradigms**                                                                 | **Description**                                                                                                                                                                                                                              |
 |--------------|-------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -232,7 +232,9 @@ if __name__ == "__main__":
 
 ### Procedureorienteret Programmering
 
-Procedureorienteret programmering baseres på, at man beskriver for computeren – trin for trin – hvad den skal foretage sig, og hvordan dens tilstand skal ændre sig. Paradigmet kan kaldes for programmering på elektronikkens præmisser. De mest kendte programmeringssprog hvor procedureorienteret programmering gør sig gældende er C og Pascal.
+Procedureorienteret programmering baseres på, at man beskriver for computeren---trin for trin---hvad den skal foretage sig, og hvordan dens tilstand skal ændre sig. Paradigmet kan kaldes for *programmering på elektronikkens præmisser*. 
+
+De mest kendte programmeringssprog hvor procedureorienteret programmering gør sig gældende er C og Pascal.
 
 ---
 
@@ -295,7 +297,7 @@ print(f"Slutsaldo: {balance}kr")
 
 ### Funktionel Programmering
 
-I det funktionsorienterede paradigme behandles opgaven, der skal løses, som en evaluering af matematiske funktioner. Eksempler på funktionelle programmeringssprog er R, Scheme, Erlang, OCaml, Haskell, SML, Lisp og F#.
+I det funktionsorienterede paradigme behandles opgaven, der skal løses, som en evaluering af matematiske funktioner. Et eksempel på funktionelt programmeringssprog er `R`, som I kommer til at møde til jeres statistikkursus.
 
 ---
 
@@ -351,19 +353,23 @@ print("Beløb efter 10 års rentes rente:", calculate_compound_interest(beløb, 
 
 ### Logikbaseret Programmering
 
-Endelig findes det logikbaserede paradigme. Logikbaseret programmering er, i den bredeste forstand, brugen af matematisk logik til computerprogrammering. Det mest kendte programmeringssprog hvor logikbaseret programmering gør sig gældende er Prolog.
+Logikbaseret programmering er, i den bredeste forstand, brugen af matematisk logik til computerprogrammering. Det mest kendte programmeringssprog hvor logikbaseret programmering gør sig gældende er Prolog.
 
 ---
 
 ### Objektorienteret Programmering
 
-I det objektorienterede paradigme behandles opgaven, der skal løses, ved brug af såkaldte objekter. Et objekt i programmet repræsenterer en forestilling af objektet i virkeligheden. Objekter med lignende egenskaber samles i klasser. En vigtig del af det objektorienterede paradigme er at skjule implementationen, således at objektet ligner virkeligheden, og implementationsdetaljer kan modificeres, uden at måden hvorpå objektet benyttes udefra ændres. Eksempler på programmeringssprog hvor objektorienteret programmering gør sig gældende er bl.a. Python, Java, C++ og C#.
+I det objektorienterede paradigme behandles opgaven, der skal løses, ved brug af såkaldte objekter. 
+
+Et objekt i programmet repræsenterer en forestilling af objektet i virkeligheden. Objekter med lignende egenskaber samles i klasser. 
+
+En vigtig del af det objektorienterede paradigme er at skjule implementationen, således at objektet ligner virkeligheden, og implementationsdetaljer kan modificeres, uden at måden hvorpå objektet benyttes udefra ændres. Eksempler på programmeringssprog hvor objektorienteret programmering gør sig gældende er bl.a. Python, Java, C++ og C#.
 
 ---
 
-Fordelen ved at gøre det i et **OOP** (*objektorienteret programmeringsparadigme*) er, at vi kan organisere implementeringen omkring vores data som "**objekter**" frem for en organisering omkring **funktioner** eller **logik**. En OOP-implementering gør det dog også mere ligetil at trække data ud sammen med deres tilhørende relationer, hvilket kan være nyttigt, når vi anvender *funktionsorienteret programmering* til *kvantitativ analyse* af data. 
+Fordelen ved at programmere i et **OOP** (*objekt-orienteret programmering*) er, at vi kan organisere implementeringen omkring vores data som "**objekter**" frem for en organisering omkring **funktioner**. 
 
-**Fem centrale koncepter**:
+*Fem centrale koncepter vi kommer til at se på i løbet af kurset:*
 
 1. Klasser og objekter.
 
@@ -397,7 +403,7 @@ class Student:
         self.grades.append({"course": course, "grade": grade})
         print(f"{self.name} fik karakter {grade} i {course}")
     
-    def calculate_gpa(self):
+    def calculate_average(self):
         if not self.grades:
             return 0
         total = sum(grade["grade"] for grade in self.grades)
@@ -429,7 +435,7 @@ student1.add_grade("Matematik", 10)
 student1.add_grade("Organisatorisk-teori", 4)
 student1.add_grade("Videnskabsteori", 2)
 
-print(f"{student1.name}s karaktergennemsnit er: {student1.calculate_gpa():.1f}")
+print(f"{student1.name}s karaktergennemsnit er: {student1.calculate_average():.1f}")
 
 </textarea>
 <button class="run-button" onclick="runPython(document.getElementById('code1.6').value, 'output1.6')">

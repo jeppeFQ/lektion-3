@@ -60,7 +60,7 @@
     "href": "index.html#algoritme-øvelse",
     "title": "Programmeringsparadigmer og algoritmer",
     "section": "Algoritme øvelse",
-    "text": "Algoritme øvelse\n\nUdskrive alle lige tal mellem 1 og 100 (Hint: I Python kan lige tal findes med: tal % 2 == 0)\nInput et positivt heltal mellem 1 og 200 og giv arealet på en kvadrat med en sidelængde svarende til tallet som output (Hint: \\(sidelængde^2\\), sidelængde ** 2).\nBrugeren giver et navn som input. Hvis navnet er ”Arthur” så output ”Har du husket dit håndklæde?”. For alle andre navne output ”Hej ” + navnet + ”!”."
+    "text": "Algoritme øvelse\n\nUdskrive alle lige tal mellem 1 og 100 (Hint: I Python kan lige tal findes med: tal % 2 == 0)\nInput et positivt heltal mellem 1 og 200 og giv arealet på en kvadrat med en sidelængde svarende til input-tallet som output (Hint: \\(sidelængde^2\\), sidelængde ** 2).\nBrugeren giver et navn som input. Hvis navnet er ”Arthur” så output ”Har du husket dit håndklæde?”. For alle andre navne output ”Hej ” + navnet + ”!”."
   },
   {
     "objectID": "index.html#programmeringsparadigmer",

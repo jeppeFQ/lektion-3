@@ -1,5 +1,5 @@
 ---
-title: "Programmeringsparadigmer, Algoritmer og compitationel tænkning"
+title: "Programmeringsparadigmer og algoritmer"
 subtitle: ""
 author: "Jeppe Fjeldgaard Qvist"
 date: today
@@ -44,6 +44,7 @@ format:
 
 ## Dagens program
 
+* Kodning i en verden med AI ... 
 * Software    
   1. programmering som disciplin. 
   2. Hvordan får vi hardwaren til at gøre det vi gerne vil have den til? 
@@ -51,7 +52,47 @@ format:
 
 * Øvelse i plenum 
 
-## Python 
+## Skal vi stadig kode? 
+
+BILLEDE
+
+---
+
+Forestil jer, at vi har anvendt AI til at bygge et system ved hjælp af `prompts`. Dette system er skabt gennem iterative interaktioner, hvor vi kontinuerligt forbedrer og tilpasser resultatet baseret på vores instruktioner. Med hver prompt giver vi AI’en specifikke anvisninger, som danner grundlaget for systemets funktionalitet.
+
+
+```
+> lav et system der ...
+```
+
+```
+> tilføj X ...
+```
+
+```
+> tilføj y ...
+```
+
+
+```
+> osv ... [Denne proces vil typisk involvere en hel del prompts]
+```
+
+Det kører, det virker. Vi bruger det i et **par år**, men så opstår der et nyt behov. Kan vi, uden nogen kodningsfærdigheder, vende tilbage til koden og tilføje nye funktioner? Kan vi overhovedet genskabe systemet 1:1, selv hvis vi i et øjeblik af klarsyn faktisk gemte vores `prompts`?
+
+*Min **personlige** og nuværende erfaringer siger nej...*
+
+*Men hvad tænker I?*
+
+## De blinde leder de blinde
+
+> Jeg ville jo heller ikke oversætte en tekst til kinesisk og derefter ukritisk sende den til udgivelse i Kina.
+
+#### Et læringsperspektiv
+
+*Tænk på, hvad Words stavekontrol har gjort for skrivefærdigheder.*
+
+## Python kodning
 
 1. Åben terminal/kommandoprompt 
 2. Skriv: `Python3` [tryk Enter]
@@ -65,7 +106,7 @@ format:
 ::: {style="font-size: 1.5em;"}
 ```
 tekst = "Hello World!"
-for i in range(10)
+for i in range(10):
   print(tekst)
 ```
 :::
@@ -104,6 +145,42 @@ else:
 **Bemærk:** "mellemrummet" i ` print(tekst)` er et `tab`, ikke et `space`
 :::
 
+## Python programmer (3)
+
+1. Åben *TextEdit* [Mac] eller *Notepad* [Windows]
+2. Skriv: 
+
+::: {style="font-size: 1.0em;"}
+```
+def main():
+    """Hovedfunktion for simpel lommeregner"""
+    print("Simpel lommeregner - Addition")
+    print("=" * 30)
+
+    # Bed brugeren om at indtaste to tal
+    tal1 = float(input("Indtast det første tal: "))
+    tal2 = float(input("Indtast det andet tal: "))
+
+    # Beregn summen
+    resultat = tal1 + tal2
+
+    # Vis resultatet
+    print(f"\n{tal1} + {tal2} = {resultat}")
+
+
+if __name__ == "__main__":
+    main()
+```
+:::
+
+3. Gem filen som: `lommeregner.py`
+
+<br>
+
+::: {.aside}
+**Bemærk:** "mellemrummet" under linjen med `def main()` og `if __name__ == "__main__":` er $2$ `tabs` og ikke `space`-mellemrum.
+:::
+
 ## Data
 
 ## Lagring af data 
@@ -114,13 +191,42 @@ else:
 
 ## Algoritme øvelse 
 
-1. Udskrive alle lige tal mellem 1 og 100 (*Hint:* I Python kan lige tal findes med: `KODE`)
-2. Input et positivt heltal mellem 1 og 200. Output arealet på en kvadrat med en sidelængde svarende til tallet (*Hint:* Formlen er $11111111$).
+1. Udskrive alle lige tal mellem 1 og 100 (*Hint:* I Python kan lige tal findes med: `tal % 2 == 0`)
+2. Input et positivt heltal mellem 1 og 200 og giv arealet på en kvadrat med en sidelængde svarende til input-tallet som output (*Hint:* $sidelængde^2$, `sidelængde ** 2`).
 3. Brugeren giver et navn som input. Hvis navnet er ”Arthur” så output ”Har du husket dit håndklæde?”. For alle andre navne output ”Hej ” + navnet + ”!”. 
 
 # Praktisk øvelse i Position og *introduktion til notebooks*
 
 ## Programmeringsparadigmer 
+
+::: {style="font-size: 0.5em;"}
+
+| **Language** | **Paradigms**                                                                 | **Description**                                                                                                                                                                                                                              |
+|--------------|-------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **R**        | Functional, Procedural                                    | Primarily used for statistical computing and data analysis, R supports functional programming but also allows for procedural and object-oriented techniques.                                                                                   |
+| **Python**   | Object-Oriented, Procedural, Functional                                      | A versatile language popular in data science, web development, and automation, Python supports multiple paradigms, including procedural, object-oriented, and functional programming.                                                           |
+| **Java**     | Object-Oriented, Concurrent, Imperative                                      | Java is heavily used in enterprise software, Android development, and large-scale systems. It focuses on the object-oriented paradigm but also supports concurrency and imperative programming.                                                |
+| **JavaScript**| Event-Driven, Functional, Procedural, Object-Oriented                        | Used mainly for web development, JavaScript is a multi-paradigm language supporting event-driven, functional, and object-oriented programming.                                                                                                 |
+| **C**        | Procedural, Imperative                                                       | A powerful system programming language, C is procedural and imperative, offering close-to-hardware performance.                                                                                                                               |
+| **C++**      | Object-Oriented, Procedural, Generic, Functional                             | Extends C with object-oriented features while also supporting procedural, functional, and generic programming, making it popular for systems and game development.                                                                             |
+| **C#**       | Object-Oriented, Procedural, Event-Driven, Functional                        | A language developed by Microsoft, C# is used in a variety of applications from web to desktop to game development. It supports object-oriented programming and functional paradigms.                                                           |
+| **Haskell**  | Functional, Declarative                                                      | Haskell is a purely functional language known for its use in academic and high-assurance systems. It emphasizes immutability, declarative programming, and type safety.                                                                         |
+| **Scala**    | Functional, Object-Oriented                                                  | A language that blends functional and object-oriented programming, Scala is often used in big data, distributed computing, and scalable systems.                                                                                               |
+| **Go**       | Procedural, Concurrent                                                       | Designed for simplicity and scalability, Go is used in cloud infrastructure and systems programming. It is procedural and supports concurrency.                                                                                               |
+| **Swift**    | Object-Oriented, Protocol-Oriented, Functional                               | Primarily used for iOS/macOS development, Swift supports multiple paradigms, including object-oriented and protocol-oriented programming.                                                                                                      |
+| **Ruby**     | Object-Oriented, Procedural, Functional                                      | Ruby is known for its elegance and simplicity, popularized by the Rails framework. It supports object-oriented, procedural, and functional paradigms.                                                                                           |
+| **PHP**      | Object-Oriented, Procedural, Functional                                      | PHP is widely used for server-side web development. It started as a procedural language but now supports object-oriented and functional programming.                                                                                            |
+| **Perl**     | Procedural, Object-Oriented, Functional                                      | Often used for scripting and system administration tasks, Perl supports procedural, object-oriented, and functional programming.                                                                                                               |
+| **Lisp**     | Functional, Procedural, Meta-programming                                     | Lisp is one of the oldest programming languages. It is primarily functional but also supports meta-programming and procedural programming.                                                                                                     |
+| **Prolog**   | Logic, Declarative                                                           | A logic programming language, Prolog is used in AI and computational linguistics. It follows a declarative paradigm, where the logic of computation is expressed without describing its control flow.                                          |
+| **SQL**      | Declarative, Set-based                                                       | SQL is a domain-specific language used for database querying and management. It follows a declarative paradigm, where users specify *what* they want rather than *how* to compute it.                                                           |
+| **MATLAB**   | Procedural, Array-Oriented, Functional                                       | Primarily used for numerical computing, MATLAB supports procedural and array-oriented programming. It is commonly used in scientific computing and engineering applications.                                                                  |
+| **Rust**     | Procedural, Functional, Concurrent, Memory-safe                              | Rust is a system programming language focused on safety and performance. It supports procedural and functional paradigms with strong concurrency and memory safety guarantees.                                                                  |
+| **Kotlin**   | Object-Oriented, Functional                                                  | Kotlin is used for Android development and web applications. It is a modern language that supports both object-oriented and functional programming, offering interoperability with Java.                                                        |
+| **Scheme**   | Functional, Procedural, Meta-programming                                     | A minimalist dialect of Lisp, Scheme emphasizes functional and meta-programming with a simple syntax.                                                                                                                                        |
+| **Erlang**   | Functional, Concurrent                                                       | Erlang is designed for building highly concurrent, distributed, and fault-tolerant systems, following functional and concurrent paradigms.                                                                                                     |
+| **F#**       | Functional, Object-Oriented, Procedural                                      | F# is part of the .NET ecosystem, with a focus on functional programming, but it also supports object-oriented and procedural paradigms.                                                                                                       |
+:::
 
 ---
 
@@ -255,6 +361,22 @@ I det objektorienterede paradigme behandles opgaven, der skal løses, ved brug a
 
 ---
 
+Fordelen ved at gøre det i et **OOP** (*objektorienteret programmeringsparadigme*) er, at vi kan organisere implementeringen omkring vores data som "**objekter**" frem for en organisering omkring **funktioner** eller **logik**. En OOP-implementering gør det dog også mere ligetil at trække data ud sammen med deres tilhørende relationer, hvilket kan være nyttigt, når vi anvender *funktionsorienteret programmering* til *kvantitativ analyse* af data. 
+
+**Fem centrale koncepter**:
+
+1. Klasser og objekter.
+
+2. Attributter og metoder.
+
+3. *Encapsulation* ("afskærmning? indkapsling?")
+
+4. *Inheritance* ("nedarvning")
+
+5. *Polymorphism* ("foranderlighed")
+
+---
+
 <div class="code-container">
 <div class="code-input">
 <textarea class="python-editor" id="code1.5">
@@ -320,3 +442,101 @@ print(f"{student1.name}s karaktergennemsnit er: {student1.calculate_gpa():.1f}")
 <div class="code-output" id="output1.6"></div>
 </div>
 
+## Mini-projekter
+
+- Fælles grundstruktur for alle projekter: Alle projekterne kan opbygges med disse fælles komponenter. 
+  - **Undervisningscase**: *Fremmøderegistrering*
+  - Borgerhenvendelsessystem
+  - Ventelistehåndtering til sundhedsvæsenet
+  - Affaldshåndteringssystem
+  - Tilskudsberegner
+
+I kan, til de sidste workshops eller løbende, selvstændigt udvide jeres systemer baseret på jeres interesse. Forventningen iht. hvad I skal kunne til eksamen, er det I bliver præsenteret for i litteraturen og undervisningen. 
+
+## Fremmøderegistrering
+
+* **PROBLEM**: Vi skal registrere fremmøde for flere elever. 
+* **TEKNISK UDFORDRING**: Uden OOP bliver det hurtigt rodet.
+
+---
+
+#### Eksemplet her bliver praktisk umuligt, hvis der er $100+$ elever. 
+
+<div class="code-container">
+<div class="code-input">
+<textarea class="python-editor" id="code1.7">
+
+elev1_navn = "Anna Hansen"
+elev1_klasse = "3A"
+elev1_status = "Tilstede"
+
+elev2_navn = "Mads Nielsen"
+elev2_klasse = "3A"
+elev2_status = "Fraværende"
+
+elev3_navn = "Emma Larsen"
+elev3_klasse = "3B"
+elev3_status = "Tilstede"
+
+# Hvis vi vil udskrive alle:
+print(f"{elev1_navn} fra {elev1_klasse} er {elev1_status}")
+print(f"{elev2_navn} fra {elev2_klasse} er {elev2_status}")
+print(f"{elev3_navn} fra {elev3_klasse} er {elev3_status}")
+
+</textarea>
+<button class="run-button" onclick="runPython(document.getElementById('code1.7').value, 'output1.7')">
+  <img src="resources/python-file.png" alt="Python" style="height: 50px;">
+</button>
+<button class="reset-button" onclick="resetPythonGlobals()">
+  <img src="resources/dust.png" alt="Python" style="height: 50px;">
+</button>
+</div>
+<div class="code-output" id="output1.7"></div>
+</div>
+
+
+---
+
+#### Dictionaries gør det nemmere at arbejde med
+
+<div class="code-container">
+<div class="code-input">
+<textarea class="python-editor" id="code1.8">
+
+# dictionaries
+elev1 = {
+    "navn": "Anna Hansen",
+    "klasse": "3A",
+    "status": "Tilstede"
+}
+
+elev2 = {
+    "navn": "Mads Nielsen",
+    "klasse": "3A", 
+    "status": "Fraværende"
+}
+
+# Åbenlyst nemmere at arbejde med
+print(f"{elev1['navn']} fra {elev1['klasse']} er {elev1['status']}")
+
+</textarea>
+<button class="run-button" onclick="runPython(document.getElementById('code1.8').value, 'output1.8')">
+  <img src="resources/python-file.png" alt="Python" style="height: 50px;">
+</button>
+<button class="reset-button" onclick="resetPythonGlobals()">
+  <img src="resources/dust.png" alt="Python" style="height: 50px;">
+</button>
+</div>
+<div class="code-output" id="output1.8"></div>
+</div>
+
+---
+
+Lav jeres egne `dictionaries`, der kan anvendes til jeres case
+
+::: {.incremental}
+- Borgerhenvendelse: `navn, emne, dato`
+- Venteliste: `patient_navn, behandling, prioritet`
+- Affald: `adresse, type, vægt`
+- Tilskud: `navn, type, beløb`
+:::

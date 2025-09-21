@@ -2,9 +2,9 @@
   {
     "objectID": "index.html#dagens-program",
     "href": "index.html#dagens-program",
-    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "title": "Programmeringsparadigmer og algoritmer",
     "section": "Dagens program",
-    "text": "Dagens program\n\nSoftware\n\nprogrammering som disciplin.\nHvordan får vi hardwaren til at gøre det vi gerne vil have den til?\nHvilke principper ligger til grund for dette\n\nØvelse i plenum"
+    "text": "Dagens program\n\nKodning i en verden med AI …\nSoftware\n\nprogrammering som disciplin.\nHvordan får vi hardwaren til at gøre det vi gerne vil have den til?\nHvilke principper ligger til grund for dette\n\nØvelse i plenum"
   },
   {
     "objectID": "index.html#python",
@@ -16,57 +16,99 @@
   {
     "objectID": "index.html#python-programmer-1",
     "href": "index.html#python-programmer-1",
-    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "title": "Programmeringsparadigmer og algoritmer",
     "section": "Python programmer (1)",
-    "text": "Python programmer (1)\n\nÅben TextEdit [Mac] eller Notepad [Windows]\nSkriv:\n\n\ntekst = \"Hello World!\"\nfor i in range(10)\n  print(tekst)\n\n\nGem filen som: hello_world.py\n\n\n\n\nBemærk: “mellemrummet” i print(tekst) er et tab, ikke et space"
+    "text": "Python programmer (1)\n\nÅben TextEdit [Mac] eller Notepad [Windows]\nSkriv:\n\n\ntekst = \"Hello World!\"\nfor i in range(10):\n  print(tekst)\n\n\nGem filen som: hello_world.py\n\n\n\n\nBemærk: “mellemrummet” i print(tekst) er et tab, ikke et space"
   },
   {
     "objectID": "index.html#python-programmer-2",
     "href": "index.html#python-programmer-2",
-    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "title": "Programmeringsparadigmer og algoritmer",
     "section": "Python programmer (2)",
     "text": "Python programmer (2)\n\nÅben Positron (eller VScode)\nVælg: ny fil\nGem som: test_tal.py\nSkriv:\n\n\ntal = 5\nif (tal &lt; 10):\n  print(\"Tallet er mindre end 10\")\nelse: \n  print(\"Tallet er ikke mindre end 10\")\n\n\nKør koden\n5.1. Run [CTRL+ALT+N] eller markér kode [CMD+Enter]\n\n\n\n\nBemærk: “mellemrummet” i print(tekst) er et tab, ikke et space"
   },
   {
     "objectID": "index.html#data",
     "href": "index.html#data",
-    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "title": "Programmeringsparadigmer og algoritmer",
     "section": "Data",
     "text": "Data"
   },
   {
     "objectID": "index.html#lagring-af-data",
     "href": "index.html#lagring-af-data",
-    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "title": "Programmeringsparadigmer og algoritmer",
     "section": "Lagring af data",
     "text": "Lagring af data"
   },
   {
     "objectID": "index.html#abstraktion",
     "href": "index.html#abstraktion",
-    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "title": "Programmeringsparadigmer og algoritmer",
     "section": "Abstraktion",
     "text": "Abstraktion"
   },
   {
     "objectID": "index.html#algoritmer",
     "href": "index.html#algoritmer",
-    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "title": "Programmeringsparadigmer og algoritmer",
     "section": "Algoritmer",
     "text": "Algoritmer"
   },
   {
     "objectID": "index.html#algoritme-øvelse",
     "href": "index.html#algoritme-øvelse",
-    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "title": "Programmeringsparadigmer og algoritmer",
     "section": "Algoritme øvelse",
-    "text": "Algoritme øvelse\n\nUdskrive alle lige tal mellem 1 og 100 (Hint: I Python kan lige tal findes med: KODE)\nInput et positivt heltal mellem 1 og 200. Output arealet på en kvadrat med en sidelængde svarende til tallet (Hint: Formlen er \\(11111111\\)).\nBrugeren giver et navn som input. Hvis navnet er ”Arthur” så output ”Har du husket dit håndklæde?”. For alle andre navne output ”Hej ” + navnet + ”!”."
+    "text": "Algoritme øvelse\n\nUdskrive alle lige tal mellem 1 og 100 (Hint: I Python kan lige tal findes med: tal % 2 == 0)\nInput et positivt heltal mellem 1 og 200 og giv arealet på en kvadrat med en sidelængde svarende til tallet som output (Hint: \\(sidelængde^2\\), sidelængde ** 2).\nBrugeren giver et navn som input. Hvis navnet er ”Arthur” så output ”Har du husket dit håndklæde?”. For alle andre navne output ”Hej ” + navnet + ”!”."
   },
   {
     "objectID": "index.html#programmeringsparadigmer",
     "href": "index.html#programmeringsparadigmer",
-    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "title": "Programmeringsparadigmer og algoritmer",
     "section": "Programmeringsparadigmer",
-    "text": "Programmeringsparadigmer"
+    "text": "Programmeringsparadigmer\n\n\n\n\n\n\n\n\n\nLanguage\nParadigms\nDescription\n\n\n\n\nR\nFunctional, Procedural\nPrimarily used for statistical computing and data analysis, R supports functional programming but also allows for procedural and object-oriented techniques.\n\n\nPython\nObject-Oriented, Procedural, Functional\nA versatile language popular in data science, web development, and automation, Python supports multiple paradigms, including procedural, object-oriented, and functional programming.\n\n\nJava\nObject-Oriented, Concurrent, Imperative\nJava is heavily used in enterprise software, Android development, and large-scale systems. It focuses on the object-oriented paradigm but also supports concurrency and imperative programming.\n\n\nJavaScript\nEvent-Driven, Functional, Procedural, Object-Oriented\nUsed mainly for web development, JavaScript is a multi-paradigm language supporting event-driven, functional, and object-oriented programming.\n\n\nC\nProcedural, Imperative\nA powerful system programming language, C is procedural and imperative, offering close-to-hardware performance.\n\n\nC++\nObject-Oriented, Procedural, Generic, Functional\nExtends C with object-oriented features while also supporting procedural, functional, and generic programming, making it popular for systems and game development.\n\n\nC#\nObject-Oriented, Procedural, Event-Driven, Functional\nA language developed by Microsoft, C# is used in a variety of applications from web to desktop to game development. It supports object-oriented programming and functional paradigms.\n\n\nHaskell\nFunctional, Declarative\nHaskell is a purely functional language known for its use in academic and high-assurance systems. It emphasizes immutability, declarative programming, and type safety.\n\n\nScala\nFunctional, Object-Oriented\nA language that blends functional and object-oriented programming, Scala is often used in big data, distributed computing, and scalable systems.\n\n\nGo\nProcedural, Concurrent\nDesigned for simplicity and scalability, Go is used in cloud infrastructure and systems programming. It is procedural and supports concurrency.\n\n\nSwift\nObject-Oriented, Protocol-Oriented, Functional\nPrimarily used for iOS/macOS development, Swift supports multiple paradigms, including object-oriented and protocol-oriented programming.\n\n\nRuby\nObject-Oriented, Procedural, Functional\nRuby is known for its elegance and simplicity, popularized by the Rails framework. It supports object-oriented, procedural, and functional paradigms.\n\n\nPHP\nObject-Oriented, Procedural, Functional\nPHP is widely used for server-side web development. It started as a procedural language but now supports object-oriented and functional programming.\n\n\nPerl\nProcedural, Object-Oriented, Functional\nOften used for scripting and system administration tasks, Perl supports procedural, object-oriented, and functional programming.\n\n\nLisp\nFunctional, Procedural, Meta-programming\nLisp is one of the oldest programming languages. It is primarily functional but also supports meta-programming and procedural programming.\n\n\nProlog\nLogic, Declarative\nA logic programming language, Prolog is used in AI and computational linguistics. It follows a declarative paradigm, where the logic of computation is expressed without describing its control flow.\n\n\nSQL\nDeclarative, Set-based\nSQL is a domain-specific language used for database querying and management. It follows a declarative paradigm, where users specify what they want rather than how to compute it.\n\n\nMATLAB\nProcedural, Array-Oriented, Functional\nPrimarily used for numerical computing, MATLAB supports procedural and array-oriented programming. It is commonly used in scientific computing and engineering applications.\n\n\nRust\nProcedural, Functional, Concurrent, Memory-safe\nRust is a system programming language focused on safety and performance. It supports procedural and functional paradigms with strong concurrency and memory safety guarantees.\n\n\nKotlin\nObject-Oriented, Functional\nKotlin is used for Android development and web applications. It is a modern language that supports both object-oriented and functional programming, offering interoperability with Java.\n\n\nScheme\nFunctional, Procedural, Meta-programming\nA minimalist dialect of Lisp, Scheme emphasizes functional and meta-programming with a simple syntax.\n\n\nErlang\nFunctional, Concurrent\nErlang is designed for building highly concurrent, distributed, and fault-tolerant systems, following functional and concurrent paradigms.\n\n\nF#\nFunctional, Object-Oriented, Procedural\nF# is part of the .NET ecosystem, with a focus on functional programming, but it also supports object-oriented and procedural paradigms."
+  },
+  {
+    "objectID": "index.html#skal-vi-stadig-kode",
+    "href": "index.html#skal-vi-stadig-kode",
+    "title": "Programmeringsparadigmer og algoritmer",
+    "section": "Skal vi stadig kode?",
+    "text": "Skal vi stadig kode?\nBILLEDE"
+  },
+  {
+    "objectID": "index.html#de-blinde-leder-de-blinde",
+    "href": "index.html#de-blinde-leder-de-blinde",
+    "title": "Programmeringsparadigmer og algoritmer",
+    "section": "De blinde leder de blinde",
+    "text": "De blinde leder de blinde\n\nJeg ville jo heller ikke oversætte en tekst til kinesisk og derefter ukritisk sende den til udgivelse i Kina.\n\nEt læringsperspektiv\nTænk på, hvad Words stavekontrol har gjort for skrivefærdigheder."
+  },
+  {
+    "objectID": "index.html#python-kodning",
+    "href": "index.html#python-kodning",
+    "title": "Programmeringsparadigmer og algoritmer",
+    "section": "Python kodning",
+    "text": "Python kodning\n\nÅben terminal/kommandoprompt\nSkriv: Python3 [tryk Enter]\nSkriv: print(\"Hello World!\") [tryk Enter]"
+  },
+  {
+    "objectID": "index.html#mini-projekter",
+    "href": "index.html#mini-projekter",
+    "title": "Programmeringsparadigmer og algoritmer",
+    "section": "Mini-projekter",
+    "text": "Mini-projekter\n\nFælles grundstruktur for alle projekter: Alle projekterne kan opbygges med disse fælles komponenter.\n\nUndervisningscase: Fremmøderegistrering\nBorgerhenvendelsessystem\nVentelistehåndtering til sundhedsvæsenet\nAffaldshåndteringssystem\nTilskudsberegner\n\n\nI kan, til de sidste workshops eller løbende, selvstændigt udvide jeres systemer baseret på jeres interesse. Forventningen iht. hvad I skal kunne til eksamen, er det I bliver præsenteret for i litteraturen og undervisningen."
+  },
+  {
+    "objectID": "index.html#fremmøderegistrering",
+    "href": "index.html#fremmøderegistrering",
+    "title": "Programmeringsparadigmer og algoritmer",
+    "section": "Fremmøderegistrering",
+    "text": "Fremmøderegistrering\n\nPROBLEM: Vi skal registrere fremmøde for flere elever.\nTEKNISK UDFORDRING: Uden OOP bliver det hurtigt rodet."
+  },
+  {
+    "objectID": "index.html#python-programmer-3",
+    "href": "index.html#python-programmer-3",
+    "title": "Programmeringsparadigmer og algoritmer",
+    "section": "Python programmer (3)",
+    "text": "Python programmer (3)\n\nÅben TextEdit [Mac] eller Notepad [Windows]\nSkriv:\n\n\ndef main():\n    \"\"\"Hovedfunktion for simpel lommeregner\"\"\"\n    print(\"Simpel lommeregner - Addition\")\n    print(\"=\" * 30)\n\n    # Bed brugeren om at indtaste to tal\n    tal1 = float(input(\"Indtast det første tal: \"))\n    tal2 = float(input(\"Indtast det andet tal: \"))\n\n    # Beregn summen\n    resultat = tal1 + tal2\n\n    # Vis resultatet\n    print(f\"\\n{tal1} + {tal2} = {resultat}\")\n\n\nif __name__ == \"__main__\":\n    main()\n\n\nGem filen som: lommeregner.py\n\n\n\n\nBemærk: “mellemrummet” under linjen med def main() og if __name__ == \"__main__\": er \\(2\\) tabs og ikke space-mellemrum."
   }
 ]

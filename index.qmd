@@ -54,7 +54,7 @@ format:
 
 ## Skal vi stadig kode? 
 
-BILLEDE
+![](resources/jensen.png)
 
 ---
 
@@ -92,7 +92,7 @@ Det kører, det virker. Vi bruger det i et **par år**, men så opstår der et n
 
 *Tænk på, hvad Words stavekontrol har gjort for skrivefærdigheder.*
 
-## Python kodning
+## Python-kodning
 
 1. Åben terminal/kommandoprompt 
 2. Skriv: `Python3` [tryk Enter]
@@ -183,11 +183,35 @@ if __name__ == "__main__":
 
 ## Data
 
+![](resources/datatypes.png)
+
 ## Lagring af data 
+
+![](resources/store_data.png)
+
+---
+
+![](resources/store_data2.png)
 
 ## Abstraktion 
 
+![](resources/abstraction.png)
+
+---
+
+![](resources/abstraction2.png)
+
+---
+
+![](resources/abstraction3.png)
+
 ## Algoritmer 
+
+![](resources/algorithm.png)
+
+---
+
+![](resources/algorithm2.png)
 
 ## Algoritme øvelse 
 

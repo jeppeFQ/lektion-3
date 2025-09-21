@@ -74,7 +74,7 @@
     "href": "index.html#skal-vi-stadig-kode",
     "title": "Programmeringsparadigmer og algoritmer",
     "section": "Skal vi stadig kode?",
-    "text": "Skal vi stadig kode?\nBILLEDE"
+    "text": "Skal vi stadig kode?"
   },
   {
     "objectID": "index.html#de-blinde-leder-de-blinde",
@@ -87,8 +87,8 @@
     "objectID": "index.html#python-kodning",
     "href": "index.html#python-kodning",
     "title": "Programmeringsparadigmer og algoritmer",
-    "section": "Python kodning",
-    "text": "Python kodning\n\nÅben terminal/kommandoprompt\nSkriv: Python3 [tryk Enter]\nSkriv: print(\"Hello World!\") [tryk Enter]"
+    "section": "Python-kodning",
+    "text": "Python-kodning\n\nÅben terminal/kommandoprompt\nSkriv: Python3 [tryk Enter]\nSkriv: print(\"Hello World!\") [tryk Enter]"
   },
   {
     "objectID": "index.html#mini-projekter",

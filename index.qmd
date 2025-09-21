@@ -27,7 +27,231 @@ format:
           .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
             font-family: "Libre Baskerville", serif !important;
           }
+          .reveal .slides section {
+            overflow: visible !important;
+          }
+          .reveal ul, .reveal ol {
+            margin: 0.5em 0;
+            padding-left: 1.5em;
+            overflow: visible !important;
+          }
+          .reveal li {
+            margin-bottom: 0.25em;
+            overflow: visible !important;
+          }
           </style>
 ---
 
 ## Dagens program
+
+* Software    
+  1. programmering som disciplin. 
+  2. Hvordan får vi hardwaren til at gøre det vi gerne vil have den til? 
+  3. Hvilke principper ligger til grund for dette
+
+* Øvelse i plenum 
+
+## Python 
+
+1. Åben terminal/kommandoprompt 
+2. Skriv: `Python3` [tryk Enter]
+3. Skriv: `print("Hello World!")` [tryk Enter]
+
+## Python programmer (1)
+
+1. Åben *TextEdit* [Mac] eller *Notepad* [Windows]
+2. Skriv: 
+
+::: {style="font-size: 1.5em;"}
+```
+tekst = "Hello World!"
+for i in range(10)
+  print(tekst)
+```
+:::
+
+3. Gem filen som: `hello_world.py`
+
+<br>
+
+::: {.aside}
+**Bemærk:** "mellemrummet" i ` print(tekst)` er et `tab`, ikke et `space`
+:::
+
+## Python programmer (2)
+
+1. Åben Positron (eller VScode)
+2. Vælg: `ny fil`
+3. Gem som: `test_tal.py`
+4. Skriv: 
+
+::: {style="font-size: 1.5em;"}
+```
+tal = 5
+if (tal < 10):
+  print("Tallet er mindre end 10")
+else: 
+  print("Tallet er ikke mindre end 10")
+```
+:::
+
+5. Kør koden    
+  5.1. `Run` [CTRL+ALT+N] eller `markér kode` [CMD+Enter]
+
+<br>
+
+::: {.aside}
+**Bemærk:** "mellemrummet" i ` print(tekst)` er et `tab`, ikke et `space`
+:::
+
+## Data
+
+## Lagring af data 
+
+## Abstraktion 
+
+## Algoritmer 
+
+## Algoritme øvelse 
+
+1. Udskrive alle lige tal mellem 1 og 100 (*Hint:* I Python kan lige tal findes med: `KODE`)
+2. Input et positivt heltal mellem 1 og 200. Output arealet på en kvadrat med en sidelængde svarende til tallet (*Hint:* Formlen er $11111111$).
+3. Brugeren giver et navn som input. Hvis navnet er ”Arthur” så output ”Har du husket dit håndklæde?”. For alle andre navne output ”Hej ” + navnet + ”!”. 
+
+## Programmeringsparadigmer 
+
+---
+
+### Procedureorienteret Programmering
+
+Procedureorienteret programmering baseres på, at man beskriver for computeren – trin for trin – hvad den skal foretage sig, og hvordan dens tilstand skal ændre sig. Paradigmet kan kaldes for programmering på elektronikkens præmisser. De mest kendte programmeringssprog hvor procedureorienteret programmering gør sig gældende er C og Pascal.
+
+---
+
+<div class="code-container">
+<div class="code-input">
+<textarea class="python-editor" id="code1.1">
+      
+# Trin-for-trin instruktioner med globale variabler
+
+balance = 1000  # Global tilstand
+
+def deposit(amount):
+    global balance
+    balance = balance + amount
+    print(f"Indsat: {amount}kr. Ny saldo: {balance}kr")
+
+def withdraw(amount):
+    global balance
+    if balance >= amount:
+        balance = balance - amount
+        print(f"Hævet: {amount}kr. Ny saldo: {balance}kr")
+    else:
+        print("Ikke nok penge!")
+
+</textarea>
+<button class="run-button" onclick="runPython(document.getElementById('code1.1').value, 'output1.1')">
+  <img src="resources/python-file.png" alt="Python" style="height: 50px;">
+</button>
+<button class="reset-button" onclick="resetPythonGlobals()">
+  <img src="resources/dust.png" alt="Python" style="height: 50px;">
+</button>
+</div>
+<div class="code-output" id="output1.1"></div>
+</div>
+
+---
+
+<div class="code-container">
+<div class="code-input">
+<textarea class="python-editor" id="code1.2">
+      
+# Anvendelse
+
+deposit(500)
+withdraw(200)
+print(f"Slutsaldo: {balance}kr")
+
+</textarea>
+<button class="run-button" onclick="runPython(document.getElementById('code1.2').value, 'output1.2')">
+  <img src="resources/python-file.png" alt="Python" style="height: 50px;">
+</button>
+<button class="reset-button" onclick="resetPythonGlobals()">
+  <img src="resources/dust.png" alt="Python" style="height: 50px;">
+</button>
+</div>
+<div class="code-output" id="output1.2"></div>
+</div>
+
+---
+
+### Funktionel Programmering
+
+I det funktionsorienterede paradigme behandles opgaven, der skal løses, som en evaluering af matematiske funktioner. Eksempler på funktionelle programmeringssprog er Scheme, Erlang, OCaml, Haskell, SML, Lisp og F#.
+
+---
+
+<div class="code-container">
+<div class="code-input">
+<textarea class="python-editor" id="code1.3">
+      
+# Behandler alt som matematiske funktioner
+
+def add_interest(balance, rate):
+    """Ren funktion - samme input giver altid samme output"""
+    return balance * (1 + rate)
+
+def calculate_compound_interest(principal, rate, years):
+    """Funktionel tilgang med rekursion"""
+    if years == 0:
+        return principal
+    else:
+        return calculate_compound_interest(add_interest(principal, rate), rate, years - 1)
+
+# Brug af higher-order funktioner
+balances = [1000, 2000, 3000]
+with_interest = list(map(lambda x: add_interest(x, 0.05), balances))
+
+</textarea>
+<button class="run-button" onclick="runPython(document.getElementById('code1.3').value, 'output1.3')">
+  <img src="resources/python-file.png" alt="Python" style="height: 50px;">
+</button>
+<button class="reset-button" onclick="resetPythonGlobals()">
+  <img src="resources/dust.png" alt="Python" style="height: 50px;">
+</button>
+</div>
+<div class="code-output" id="output1.1"></div>
+</div>
+
+---
+
+<div class="code-container">
+<div class="code-input">
+<textarea class="python-editor" id="code1.4">
+
+print("Oprindelige beløb:", balances)
+print("Med 5% rente:", with_interest)
+print("10 års rentes rente:", calculate_compound_interest(1000, 0.05, 10))
+
+</textarea>
+<button class="run-button" onclick="runPython(document.getElementById('code1.4').value, 'output1.4')">
+  <img src="resources/python-file.png" alt="Python" style="height: 50px;">
+</button>
+<button class="reset-button" onclick="resetPythonGlobals()">
+  <img src="resources/dust.png" alt="Python" style="height: 50px;">
+</button>
+</div>
+<div class="code-output" id="output1.4"></div>
+</div>
+
+---
+
+### Objektorienteret Programmering
+
+I det objektorienterede paradigme behandles opgaven, der skal løses, ved brug af såkaldte objekter. Et objekt i programmet repræsenterer en forestilling af objektet i virkeligheden. Objekter med lignende egenskaber samles i klasser. En vigtig del af det objektorienterede paradigme er at skjule implementationen, således at objektet ligner virkeligheden, og implementationsdetaljer kan modificeres, uden at måden hvorpå objektet benyttes udefra ændres. Eksempler på programmeringssprog hvor objektorienteret programmering gør sig gældende er bl.a. Java, C++ og C#.
+
+---
+
+### Logikbaseret Programmering
+
+Endelig findes det logikbaserede paradigme. Logikbaseret programmering er, i den bredeste forstand, brugen af matematisk logik til computerprogrammering. Det mest kendte programmeringssprog hvor logikbaseret programmering gør sig gældende er Prolog.

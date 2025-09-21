@@ -4,6 +4,69 @@
     "href": "index.html#dagens-program",
     "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
     "section": "Dagens program",
-    "text": "Dagens program"
+    "text": "Dagens program\n\nSoftware\n\nprogrammering som disciplin.\nHvordan får vi hardwaren til at gøre det vi gerne vil have den til?\nHvilke principper ligger til grund for dette\n\nØvelse i plenum"
+  },
+  {
+    "objectID": "index.html#python",
+    "href": "index.html#python",
+    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "section": "Python",
+    "text": "Python\n\nÅben terminal/kommandoprompt\nSkriv: Python3 [tryk Enter]\nSkriv: print(\"Hello World!\") [tryk Enter]"
+  },
+  {
+    "objectID": "index.html#python-programmer-1",
+    "href": "index.html#python-programmer-1",
+    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "section": "Python programmer (1)",
+    "text": "Python programmer (1)\n\nÅben TextEdit [Mac] eller Notepad [Windows]\nSkriv:\n\n\ntekst = \"Hello World!\"\nfor i in range(10)\n  print(tekst)\n\n\nGem filen som: hello_world.py\n\n\n\n\nBemærk: “mellemrummet” i print(tekst) er et tab, ikke et space"
+  },
+  {
+    "objectID": "index.html#python-programmer-2",
+    "href": "index.html#python-programmer-2",
+    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "section": "Python programmer (2)",
+    "text": "Python programmer (2)\n\nÅben Positron (eller VScode)\nVælg: ny fil\nGem som: test_tal.py\nSkriv:\n\n\ntal = 5\nif (tal &lt; 10):\n  print(\"Tallet er mindre end 10\")\nelse: \n  print(\"Tallet er ikke mindre end 10\")\n\n\nKør koden\n5.1. Run [CTRL+ALT+N] eller markér kode [CMD+Enter]\n\n\n\n\nBemærk: “mellemrummet” i print(tekst) er et tab, ikke et space"
+  },
+  {
+    "objectID": "index.html#data",
+    "href": "index.html#data",
+    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "section": "Data",
+    "text": "Data"
+  },
+  {
+    "objectID": "index.html#lagring-af-data",
+    "href": "index.html#lagring-af-data",
+    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "section": "Lagring af data",
+    "text": "Lagring af data"
+  },
+  {
+    "objectID": "index.html#abstraktion",
+    "href": "index.html#abstraktion",
+    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "section": "Abstraktion",
+    "text": "Abstraktion"
+  },
+  {
+    "objectID": "index.html#algoritmer",
+    "href": "index.html#algoritmer",
+    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "section": "Algoritmer",
+    "text": "Algoritmer"
+  },
+  {
+    "objectID": "index.html#algoritme-øvelse",
+    "href": "index.html#algoritme-øvelse",
+    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "section": "Algoritme øvelse",
+    "text": "Algoritme øvelse\n\nUdskrive alle lige tal mellem 1 og 100 (Hint: I Python kan lige tal findes med: KODE)\nInput et positivt heltal mellem 1 og 200. Output arealet på en kvadrat med en sidelængde svarende til tallet (Hint: Formlen er \\(11111111\\)).\nBrugeren giver et navn som input. Hvis navnet er ”Arthur” så output ”Har du husket dit håndklæde?”. For alle andre navne output ”Hej ” + navnet + ”!”."
+  },
+  {
+    "objectID": "index.html#programmeringsparadigmer",
+    "href": "index.html#programmeringsparadigmer",
+    "title": "Programmeringsparadigmer, Algoritmer og compitationel tænkning",
+    "section": "Programmeringsparadigmer",
+    "text": "Programmeringsparadigmer"
   }
 ]

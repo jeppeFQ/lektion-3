@@ -58,7 +58,9 @@ format:
 
 ---
 
-Forestil jer, at vi har anvendt AI til at bygge et system ved hjælp af `prompts`. Dette system er skabt gennem iterative interaktioner, hvor vi kontinuerligt forbedrer og tilpasser resultatet baseret på vores instruktioner. Med hver prompt giver vi AI’en specifikke anvisninger, som danner grundlaget for systemets funktionalitet.
+Forestil jer, at vi har anvendt AI til at bygge et system ved hjælp af `prompts`. Dette system er skabt gennem iterative interaktioner, hvor vi kontinuerligt forbedrer og tilpasser resultatet baseret på vores instruktioner. 
+
+Med hver prompt giver vi AI’en specifikke anvisninger, som danner grundlaget for systemets funktionalitet.
 
 
 ```
@@ -73,7 +75,6 @@ Forestil jer, at vi har anvendt AI til at bygge et system ved hjælp af `prompts
 > tilføj y ...
 ```
 
-
 ```
 > osv ... [Denne proces vil typisk involvere en hel del prompts]
 ```
@@ -86,7 +87,7 @@ Det kører, det virker. Vi bruger det i et **par år**, men så opstår der et n
 
 ## De blinde leder de blinde
 
-> Jeg ville jo heller ikke oversætte en tekst til kinesisk og derefter ukritisk sende den til udgivelse i Kina.
+> Jeg ville heller ikke oversætte en tekst til kinesisk og derefter ukritisk sende den til udgivelse i Kina.
 
 #### Et læringsperspektiv
 

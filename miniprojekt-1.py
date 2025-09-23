@@ -16,7 +16,7 @@ class Elev:
     
     def get_fraværsdage(self):
         return len([r for r in self.registreringer 
-                   if r.status in ["Fraværende", "Syg"]])
+                    if r.status in ["Fraværende", "Syg"]])
     
     def get_seneste_status(self):
         if self.registreringer:

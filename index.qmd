@@ -1,200 +1,162 @@
 ---
-title: "Programmeringsparadigmer og algoritmer"
-subtitle: ""
+title: "Lektion 4"
+subtitle: "Programmeringsparadigmer og algoritmer"
 author: "Jeppe Fjeldgaard Qvist"
 date: today
+engine: knitr
 format: 
-  revealjs:
+  live-revealjs:
+    css:
+      - resources/kode-layout.css
+      - resources/slides.css
     include-after-body: "resources/timer.html"
     navigation-mode: linear
     slide-number: c
     show-slide-number: print
-    embed-resources: true
-    self-contained-math: true
     smaller: true
     scrollable: true
     theme: default
-    include-in-header: 
-      - text: |
-          <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
-          <link rel="stylesheet" href="resources/pyodide-styles.css">
-          <script src="resources/pyodide-setup.js"></script>
-          <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-          <style>
-          .reveal {
-            font-family: "Libre Baskerville", serif !important;
-          }
-          .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
-            font-family: "Libre Baskerville", serif !important;
-          }
-          .reveal .slides section {
-            overflow: visible !important;
-          }
-          .reveal ul, .reveal ol {
-            margin: 0.5em 0;
-            padding-left: 1.5em;
-            overflow: visible !important;
-          }
-          .reveal li {
-            margin-bottom: 0.25em;
-            overflow: visible !important;
-          }
-          </style>
 ---
+
+<!--- 
+mkdir -p .qmd-pause && mv *.qmd .qmd-pause/ && \
+  quarto add r-wasm/quarto-live; \
+  mv .qmd-pause/* . && rmdir .qmd-pause
+----->
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
 ## Dagens program
 
-* Kodning i en verden med AI ... 
-* Software    
-  1. programmering som disciplin. 
-  2. Hvordan får vi hardwaren til at gøre det vi gerne vil have den til? 
-  3. Hvilke principper ligger til grund for dette
+1. **Skal vi stadig kode?** (...om AI og kode)
 
-* Øvelse i plenum 
+2. **Systemet er/som lag** (Kernighan kapitel 6)
 
-## Skal vi stadig kode? 
+3. **Workshop** (I får en bestilling på et "IT system" fra mig)
 
-![](resources/jensen.png)
+4. **At designe en funktion** (Downey kapitel 4, 5 og 6)
+
+5. **Paradigmer** (... den samme opgave løst på tre måder)
+
+6. **Workshop øvelse** 
+
+<br>
+
+I skriver ikke færdig kode i dag. I skriver **grænseflader**, altså hvad hver funktion skal hedder, hvad den får ind, og hvad den giver tilbage.
+
+## Litteraturen til idag, og hvor den bruges
+
+| Kapitel | Bruges til |
+|---|---|
+| **Downey kp. 4:** *Functions and Interfaces* | Grænseflade mod implementation, docstrings, præ- og postbetingelser, udviklingsplanen |
+| **Downey kp. 5:** *Conditionals and Recursion* | Booleske udtryk, kædede betingelser, rekursion og base case |
+| **Downey kp. 6:** *Return Values* | `return` mod `print`, rene funktioner, inkrementel udvikling, validering af input |
+| **Kernighan kp. 6:** *Software Systems* | Systemer som lag, styresystem, filsystem, grænseflader |
+| **Kernighan kp. 7:** *Learning to Program* | Hvorfor man skal kunne læse kode, også når man ikke skriver den selv |
+
+<br>
+
+# Skal vi stadig kode?
+
+## {background-image="resources/jensen.png" background-size="contain"}
 
 ---
 
-Forestil jer, at vi har anvendt AI til at bygge et system ved hjælp af `prompts`. Dette system er skabt gennem iterative interaktioner, hvor vi kontinuerligt forbedrer og tilpasser resultatet baseret på vores instruktioner. 
-
-Med hver prompt giver vi AI’en specifikke anvisninger, som danner grundlaget for systemets funktionalitet.
-
+Forestil jer, at vi har bygget et system med `prompts`. Vi har forbedret det lidt ad gangen, prompt for prompt, indtil det virkede.
 
 ```
 > lav et system der ...
-```
-
-```
 > tilføj X ...
-```
-
-```
 > tilføj y ...
+> osv ...
 ```
 
-```
-> osv ... [Denne proces vil typisk involvere en hel del prompts]
-```
+Det kører. Vi bruger det i et par år. Så opstår der et nyt behov.
 
-Det kører, det virker. Vi bruger det i et **par år**, men så opstår der et nyt behov. Kan vi, uden nogen kodningsfærdigheder, vende tilbage til koden og tilføje nye funktioner? Kan vi overhovedet genskabe systemet 1:1, selv hvis vi i et øjeblik af klarsyn faktisk gemte vores `prompts`?
+::: {.incremental}
 
-*Min **personlige** og nuværende erfaringer siger nej...*
+- Kan vi vende tilbage til koden og tilføje det, uden at kunne kode?
 
-*Men hvad tænker I?*
+- Kan vi overhovedet genskabe systemet 1:1 ... selv hvis vi i et øjeblik af klarsyn gemte alle vores prompts?
+
+:::
+
+<br>
+
+::: {.fragment}
+*Min personlige og* **for nuværende** *erfaring siger nej. Men hvad tænker I?*
+:::
 
 ## De blinde leder de blinde
 
-> Jeg ville heller ikke oversætte en tekst til kinesisk og derefter ukritisk sende den til udgivelse i Kina.
+> Jeg ville ikke oversætte en tekst til kinesisk (med AI) og derefter helt ukritisk sende den til udgivelse i Kina.
+
+<br>
 
 #### Et læringsperspektiv
 
 *Tænk på, hvad Words stavekontrol har gjort for skrivefærdigheder.*
 
-## Python-kodning
+<br>
 
-1. Åben terminal/kommandoprompt 
-2. Skriv: `Python3` [tryk Enter]
-3. Skriv: `print("Hello World!")` [tryk Enter]
-
-## Python programmer (1)
-
-1. Åben *TextEdit* [Mac] eller *Notepad* [Windows]
-2. Skriv: 
-
-::: {style="font-size: 1.5em;"}
-```
-tekst = "Hello World!"
-for i in range(10):
-  print(tekst)
-```
+::: {.fragment}
+Det er ikke et argument mod at bruge værktøjet. Det er også Kernighans argument (kp 7): man skal kunne læse kode(n)—også den, man ikke selv har skrevet, hvis man skal arbejde "med IT".
 :::
 
-3. Gem filen som: `hello_world.py`
+# Systemet er lag
+
+## Software er lag
+
+Kernighan (kp 6): det, vi kalder "en computer", er lag af software oven på hinanden. Hvert lag bruger det nedenunder uden at vide, hvordan det virker indeni.
+
+- **Styresystemet**: deler processoren, hukommelsen og disken ud mellem programmerne
+
+- **Filsystemet**: får en disk med nummererede blokke til at ligne mapper og filer
+
+- **Applikationerne**: browseren, VS Code, "programmer"
 
 <br>
 
-::: {.aside}
-**Bemærk:** "mellemrummet" i ` print(tekst)` er et `tab`, ikke et `space`
+::: {.fragment}
+Det lyder abstrakt, men da I skrev `ls` i lektion 1, spurgte I ikke disken. I spurgte et lag, der spurgte et lag, der spurgte disken.
 :::
 
-## Python programmer (2)
+## `ls`
 
-1. Åben Positron (eller VScode)
-2. Vælg: `ny fil`
-3. Gem som: `test_tal.py`
-4. Skriv: 
+::: {.incremental}
 
-::: {style="font-size: 1.5em;"}
-```
-tal = 5
-if (tal < 10):
-  print("Tallet er mindre end 10")
-else: 
-  print("Tallet er ikke mindre end 10")
-```
+1. **Terminalen** er et vindue, der kan vise tekst. Den kan ikke læse en disk. Den giver linjen videre til **skallen/shell** (`zsh` på Mac, PowerShell på Windows.)
+
+2. Skallen finder programmet `ls` og beder styresystemet om at starte det.
+
+3. `ls` spørger styresystemet: *giv mig indholdet af den her mappe.* Det kaldes et **systemkald**. `ls` rører aldrig disken selv: det har den **ikke lov til**.
+
+4. Styresystemet tjekker først, om I må læse mappen. Så spørger det **filsystemet** som ved, at mappen står i blok 4711.
+
+5. **Driveren** oversætter *giv mig blok 4711* til det, netop denne disk forstår.
+
+6. **SSD'ens egen controller** ved, hvilke fysiske celler blok 4711 ligger i *lige nu*. 
+
 :::
-
-5. Kør koden    
-  5.1. `Run` [CTRL+ALT+N] eller `markér kode` [CMD+Enter]
-
-<br>
-
-::: {.aside}
-**Bemærk:** "mellemrummet" i ` print(tekst)` er et `tab`, ikke et `space`
-:::
-
-## Python programmer (3)
-
-1. Åben *TextEdit* [Mac] eller *Notepad* [Windows]
-2. Skriv: 
-
-::: {style="font-size: 1.0em;"}
-```
-def main():
-    """Hovedfunktion for simpel lommeregner"""
-    print("Simpel lommeregner - Addition")
-    print("=" * 30)
-
-    # Bed brugeren om at indtaste to tal
-    tal1 = float(input("Indtast det første tal: "))
-    tal2 = float(input("Indtast det andet tal: "))
-
-    # Beregn summen
-    resultat = tal1 + tal2
-
-    # Vis resultatet
-    print(f"\n{tal1} + {tal2} = {resultat}")
-
-
-if __name__ == "__main__":
-    main()
-```
-:::
-
-3. Gem filen som: `lommeregner.py`
-
-<br>
-
-::: {.aside}
-**Bemærk:** "mellemrummet" under linjen med `def main()` og `if __name__ == "__main__":` er $2$ `tabs` og ikke `space`-mellemrum.
-:::
-
-## Data
-
-![](resources/datatypes.png)
-
-## Lagring af data 
-
-![](resources/store_data.png)
 
 ---
 
-![](resources/store_data2.png)
+Svaret kommer tilbage gennem de samme fem lag. `ls` sorterer navnene og skriver dem ud. Terminalen tegner dem som pixels.
 
-## Abstraktion 
+<br>
+
+- Det er altså fem lag og et systemkald for at se, hvad der ligger i en mappe.
+
+- ... `ls` ved stadig ikke, om jeres computer har en SSD, en gammel harddisk eller et netværksdrev. Det er ikke nødvendigt. 
+:::
+
+## Hvorfor det er bygget sådan
+
+
+... det er præcis det, I skal gøre om lidt i det små. Vi skriver `andel()` sådan, at den, der bruger den, ikke behøver vide, hvordan den regner.
+
+
+## Abstraktion
 
 ![](resources/abstraction.png)
 
@@ -206,7 +168,88 @@ if __name__ == "__main__":
 
 ![](resources/abstraction3.png)
 
-## Algoritmer 
+## Grænsefladen mellem lagene
+
+Et lag kan skiftes ud, uden at de andre opdager det: så længe **grænsefladen** er den samme. Det er derfor, en SSD kan erstatte en harddisk, uden at jeres tekstbehandling skal skrives om.
+
+<br>
+
+- Downey kalder det samme for en **interface**, bare inde i ét program: *hvordan* en funktion bruges, adskilt fra *hvordan* den virker.
+
+- Det er dagens opgave. I skal lægge grænsefladerne fast i barometeret, før nogen skriver en eneste linje, der regner på noget.
+
+## Open source
+
+Kernighan bruger open source som eksempel på, hvad der sker, når koden er åben. Andre kan læse den, finde fejl i den og bygge videre på den.
+
+<br>
+
+I gjorde præcis det sidste gang. I forkede mit repository, ændrede i kopien og sendte ændringen tilbage. Det er sådan, meget udvikling af software foregår.
+
+## Grænsefladen mellem lagene
+
+Forestil jer, at I har et program, der skal gemme en tekstfil.
+
+Programmet skal vide **hvordan det beder computeren om at gemme filen**, men det behøver ikke vide, hvordan computeren fysisk gemmer data på en SSD eller en harddisk.
+
+En grænseflade er den **fælles aftale mellem to dele af et system**. Aftalen fortæller helt konkret:
+
+* Hvilke oplysninger skal den ene del sende til den anden?
+* Hvilken handling kan den bede den anden del om at udføre?
+* Hvilket resultat kan den forvente at få tilbage?
+
+Grænsefladen bestemmer altså, **hvordan to dele samarbejder, ikke hvordan de hver især fungerer indeni**.
+
+## Det samme princip gælder inde i et Python-program
+
+Python funktioner som et *interface*.
+
+- Forestil jer en funktion, der beregner gennemsnittet af en liste med tal. Dens grænseflade fortæller os, hvordan vi kalder funktionen, hvilke argumenter den forventer, og hvad den returnerer.
+
+- Vi behøver ikke kende den interne kode for at bruge den. Og hvis vi ændrer den interne beregning, kan resten af programmet fortsat fungere, så længe grænsefladen og funktionens forventede adfærd bevares.
+
+::: {.fragment}
+**Det er dagens opgave:** I skal først aftale grænsefladerne i jeres barometer. Hvilke oplysninger modtager hvert lag? Hvad skal det levere videre? Og hvad lover laget at gøre?
+
+Først derefter (senere på kurset) skriver I koden, der udfører beregningerne.
+:::
+
+
+# Computationel tænkning
+
+## Fire greb
+
+::: {.incremental}
+
+- **Dekomposition**: del det store problem op i dele, der kan bygges hver for sig
+
+- **Mønstergenkendelse**: find det, der ligner noget, I har set før
+
+- **Abstraktion**: smid alt det væk, der ikke betyder noget for opgaven
+
+- **Algoritmedesign**: skriv fremgangsmåden ned, trin for trin, uden huller
+
+:::
+
+<br>
+
+::: {.fragment}
+De fire greb er ikke programmering. De er det, man gør **inden**.
+:::
+
+## Data
+
+![](resources/datatypes.png)
+
+## Lagring af data
+
+![](resources/store_data.png)
+
+---
+
+![](resources/store_data2.png)
+
+## Algoritmer
 
 ![](resources/algorithm.png)
 
@@ -214,360 +257,561 @@ if __name__ == "__main__":
 
 ![](resources/algorithm2.png)
 
-## Algoritme øvelse 
-
-1. Udskrive alle lige tal mellem 1 og 100 (*Hint:* I Python kan lige tal findes med: `tal % 2 == 0`)
-2. Input et positivt heltal mellem 1 og 200 og giv arealet på en kvadrat med en sidelængde svarende til input-tallet som output (*Hint:* $sidelængde^2$, `sidelængde ** 2`).
-3. Brugeren giver et navn som input. Hvis navnet er ”Arthur” så output ”Har du husket dit håndklæde?”. For alle andre navne output ”Hej ” + navnet + ”!”. 
-
-# Praktisk øvelse i Position og *introduktion til notebooks*
-
-## Programmeringsparadigmer 
-
-::: {style="font-size: 0.38em;"}
-
-| **Language** | **Paradigms**                                                                 | **Description**                                                                                                                                                                                                                              |
-|--------------|-------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **R**        | Functional, Procedural                                    | Primarily used for statistical computing and data analysis, R supports functional programming but also allows for procedural and object-oriented techniques.                                                                                   |
-| **Python**   | Object-Oriented, Procedural, Functional                                      | A versatile language popular in data science, web development, and automation, Python supports multiple paradigms, including procedural, object-oriented, and functional programming.                                                           |
-| **Java**     | Object-Oriented, Concurrent, Imperative                                      | Java is heavily used in enterprise software, Android development, and large-scale systems. It focuses on the object-oriented paradigm but also supports concurrency and imperative programming.                                                |
-| **JavaScript**| Event-Driven, Functional, Procedural, Object-Oriented                        | Used mainly for web development, JavaScript is a multi-paradigm language supporting event-driven, functional, and object-oriented programming.                                                                                                 |
-| **C**        | Procedural, Imperative                                                       | A powerful system programming language, C is procedural and imperative, offering close-to-hardware performance.                                                                                                                               |
-| **C++**      | Object-Oriented, Procedural, Generic, Functional                             | Extends C with object-oriented features while also supporting procedural, functional, and generic programming, making it popular for systems and game development.                                                                             |
-| **C#**       | Object-Oriented, Procedural, Event-Driven, Functional                        | A language developed by Microsoft, C# is used in a variety of applications from web to desktop to game development. It supports object-oriented programming and functional paradigms.                                                           |
-| **Haskell**  | Functional, Declarative                                                      | Haskell is a purely functional language known for its use in academic and high-assurance systems. It emphasizes immutability, declarative programming, and type safety.                                                                         |
-| **Scala**    | Functional, Object-Oriented                                                  | A language that blends functional and object-oriented programming, Scala is often used in big data, distributed computing, and scalable systems.                                                                                               |
-| **Go**       | Procedural, Concurrent                                                       | Designed for simplicity and scalability, Go is used in cloud infrastructure and systems programming. It is procedural and supports concurrency.                                                                                               |
-| **Swift**    | Object-Oriented, Protocol-Oriented, Functional                               | Primarily used for iOS/macOS development, Swift supports multiple paradigms, including object-oriented and protocol-oriented programming.                                                                                                      |
-| **Ruby**     | Object-Oriented, Procedural, Functional                                      | Ruby is known for its elegance and simplicity, popularized by the Rails framework. It supports object-oriented, procedural, and functional paradigms.                                                                                           |
-| **PHP**      | Object-Oriented, Procedural, Functional                                      | PHP is widely used for server-side web development. It started as a procedural language but now supports object-oriented and functional programming.                                                                                            |
-| **Perl**     | Procedural, Object-Oriented, Functional                                      | Often used for scripting and system administration tasks, Perl supports procedural, object-oriented, and functional programming.                                                                                                               |
-| **Lisp**     | Functional, Procedural, Meta-programming                                     | Lisp is one of the oldest programming languages. It is primarily functional but also supports meta-programming and procedural programming.                                                                                                     |
-| **Prolog**   | Logic, Declarative                                                           | A logic programming language, Prolog is used in AI and computational linguistics. It follows a declarative paradigm, where the logic of computation is expressed without describing its control flow.                                          |
-| **SQL**      | Declarative, Set-based                                                       | SQL is a domain-specific language used for database querying and management. It follows a declarative paradigm, where users specify *what* they want rather than *how* to compute it.                                                           |
-| **MATLAB**   | Procedural, Array-Oriented, Functional                                       | Primarily used for numerical computing, MATLAB supports procedural and array-oriented programming. It is commonly used in scientific computing and engineering applications.                                                                  |
-| **Rust**     | Procedural, Functional, Concurrent, Memory-safe                              | Rust is a system programming language focused on safety and performance. It supports procedural and functional paradigms with strong concurrency and memory safety guarantees.                                                                  |
-| **Kotlin**   | Object-Oriented, Functional                                                  | Kotlin is used for Android development and web applications. It is a modern language that supports both object-oriented and functional programming, offering interoperability with Java.                                                        |
-| **Scheme**   | Functional, Procedural, Meta-programming                                     | A minimalist dialect of Lisp, Scheme emphasizes functional and meta-programming with a simple syntax.                                                                                                                                        |
-| **Erlang**   | Functional, Concurrent                                                       | Erlang is designed for building highly concurrent, distributed, and fault-tolerant systems, following functional and concurrent paradigms.                                                                                                     |
-| **F#**       | Functional, Object-Oriented, Procedural                                      | F# is part of the .NET ecosystem, with a focus on functional programming, but it also supports object-oriented and procedural paradigms.                                                                                                       |
-:::
-
----
-
-### Procedureorienteret Programmering
-
-Procedureorienteret programmering baseres på, at man beskriver for computeren---trin for trin---hvad den skal foretage sig, og hvordan dens tilstand skal ændre sig. Paradigmet kan kaldes for *programmering på elektronikkens præmisser*. 
-
-De mest kendte programmeringssprog hvor procedureorienteret programmering gør sig gældende er C og Pascal.
-
----
-
-<div class="code-container">
-<div class="code-input">
-<textarea class="python-editor" id="code1.1">
-      
-# Trin-for-trin instruktioner med globale variabler
-
-balance = 1000  # Global tilstand
-
-def deposit(amount):
-    global balance
-    balance = balance + amount
-    print(f"Indsat: {amount}kr. Ny saldo: {balance}kr")
-
-def withdraw(amount):
-    global balance
-    if balance >= amount:
-        balance = balance - amount
-        print(f"Hævet: {amount}kr. Ny saldo: {balance}kr")
-    else:
-        print("Ikke nok penge!")
-
-</textarea>
-<button class="run-button" onclick="runPython(document.getElementById('code1.1').value, 'output1.1')">
-  <img src="resources/python-file.png" alt="Python" style="height: 50px;">
-</button>
-<button class="reset-button" onclick="resetPythonGlobals()">
-  <img src="resources/dust.png" alt="Python" style="height: 50px;">
-</button>
-</div>
-<div class="code-output" id="output1.1"></div>
-</div>
-
----
-
-<div class="code-container">
-<div class="code-input">
-<textarea class="python-editor" id="code1.2">
-      
-# Anvendelse
-
-deposit(500)
-withdraw(200)
-print(f"Slutsaldo: {balance}kr")
+# Workshop: En bestilling fra en kunde
 
-</textarea>
-<button class="run-button" onclick="runPython(document.getElementById('code1.2').value, 'output1.2')">
-  <img src="resources/python-file.png" alt="Python" style="height: 50px;">
-</button>
-<button class="reset-button" onclick="resetPythonGlobals()">
-  <img src="resources/dust.png" alt="Python" style="height: 50px;">
-</button>
-</div>
-<div class="code-output" id="output1.2"></div>
-</div>
+## Bestillingen
 
----
+> "Jeg har skrevet en rapport om diversitet på danske arbejdspladser. Nu vil jeg gerne have sådan et **online barometer**, hvor en virksomhed kan taste sine egne tal ind og se, hvordan de ligger i forhold til andre. Det skal også kunne bruges til at slå ting op. Kan I ikke bygge det?"
 
-### Funktionel Programmering
+<br>
 
-I det funktionsorienterede paradigme behandles opgaven, der skal løses, som en evaluering af matematiske funktioner. Et eksempel på funktionelt programmeringssprog er `R`, som I kommer til at møde til jeres statistikkursus.
+Det er alt, I får. Det skal ligne en (stiliseret) virkelig bestilling fra en ikke-IT-kyndig kunde ... 
 
----
+**Hvad er der galt med den?** Ikke noget ... bortset fra at man ikke kan bygge efter den.
 
-<div class="code-container">
-<div class="code-input">
-<textarea class="python-editor" id="code1.3">
-      
-# Behandler alt som matematiske funktioner
+## Øvelse 1: Krav/specifikation-interviewet
 
-def add_interest(balance, rate):
-    """Ren funktion - samme input giver altid samme output"""
-    return balance * (1 + rate)
+<span class="timer" data-time="600"></span>
 
-def calculate_compound_interest(principal, rate, years):
-    """Funktionel tilgang med rekursion"""
-    if years == 0:
-        return principal
-    else:
-        return calculate_compound_interest(add_interest(principal, rate), rate, years - 1)
+**Første arbejde i gruppen.** Skriv de spørgsmål ned, I vil stille. Prioritér dem, som om I ikke får tid til dem alle.
 
-</textarea>
-<button class="run-button" onclick="runPython(document.getElementById('code1.3').value, 'output1.3')">
-  <img src="resources/python-file.png" alt="Python" style="height: 50px;">
-</button>
-<button class="reset-button" onclick="resetPythonGlobals()">
-  <img src="resources/dust.png" alt="Python" style="height: 50px;">
-</button>
-</div>
-<div class="code-output" id="output1.3"></div>
-</div>
+- Hvad skal brugeren kunne **gøre bagefter**, som de ikke kan i dag?
 
----
+- Hvem er brugeren egentlig? Er der mere end én slags?
 
-<div class="code-container">
-<div class="code-input">
-<textarea class="python-editor" id="code1.4">
-
-beløb = 1000
-print("Beløb efter 10 års rentes rente:", calculate_compound_interest(beløb, 0.05, 10))
+- Hvad skal systemet **ikke** kunne?
 
-</textarea>
-<button class="run-button" onclick="runPython(document.getElementById('code1.4').value, 'output1.4')">
-  <img src="resources/python-file.png" alt="Python" style="height: 50px;">
-</button>
-<button class="reset-button" onclick="resetPythonGlobals()">
-  <img src="resources/dust.png" alt="Python" style="height: 50px;">
-</button>
-</div>
-<div class="code-output" id="output1.4"></div>
-</div>
-
----
-
-### Logikbaseret Programmering
-
-Logikbaseret programmering er, i den bredeste forstand, brugen af matematisk logik til computerprogrammering. Det mest kendte programmeringssprog hvor logikbaseret programmering gør sig gældende er Prolog.
-
----
-
-### Objektorienteret Programmering
-
-I det objektorienterede paradigme behandles opgaven, der skal løses, ved brug af såkaldte objekter. 
-
-Et objekt i programmet repræsenterer en forestilling af objektet i virkeligheden. Objekter med lignende egenskaber samles i klasser. 
-
-En vigtig del af det objektorienterede paradigme er at skjule implementationen, således at objektet ligner virkeligheden, og implementationsdetaljer kan modificeres, uden at måden hvorpå objektet benyttes udefra ændres. Eksempler på programmeringssprog hvor objektorienteret programmering gør sig gældende er bl.a. Python, Java, C++ og C#.
+<br>
 
----
+**Derefter "interviewer" vi i plenum.** 
 
-Fordelen ved at programmere i et **OOP** (*objekt-orienteret programmering*) er, at vi kan organisere implementeringen omkring vores data som "**objekter**" frem for en organisering omkring **funktioner**. 
+# At designe en funktion
 
-*Fem centrale koncepter vi kommer til at se på i løbet af kurset:*
+## Grænseflade og implementation
 
-1. Klasser og objekter.
-
-2. Attributter og metoder.
-
-3. *Encapsulation* ("afskærmning? indkapsling?")
-
-4. *Inheritance* ("nedarvning")
-
-5. *Polymorphism* ("foranderlighed")
-
----
-
-<div class="code-container">
-<div class="code-input">
-<textarea class="python-editor" id="code1.5">
-
-class Student:
-    # Klasse-attribut (deles af alle objekter)
-    school_name = "Aalborg Universitet"
-    
-    def __init__(self, name, student_id, major):
-        # Instance-attributter (unikke for hvert objekt)
-        self.name = name
-        self.student_id = student_id
-        self.major = major
-        self.grades = []
-    
-    # Instance-metoder
-    def add_grade(self, course, grade):
-        self.grades.append({"course": course, "grade": grade})
-        print(f"{self.name} fik karakter {grade} i {course}")
-    
-    def calculate_average(self):
-        if not self.grades:
-            return 0
-        total = sum(grade["grade"] for grade in self.grades)
-        return total / len(self.grades)
-
-</textarea>
-<button class="run-button" onclick="runPython(document.getElementById('code1.5').value, 'output1.5')">
-  <img src="resources/python-file.png" alt="Python" style="height: 50px;">
-</button>
-<button class="reset-button" onclick="resetPythonGlobals()">
-  <img src="resources/dust.png" alt="Python" style="height: 50px;">
-</button>
-</div>
-<div class="code-output" id="output1.5"></div>
-</div>
-
----
-
-<div class="code-container">
-<div class="code-input">
-<textarea class="python-editor" id="code1.6">
-
-# Brug af klassen
-student1 = Student("Anna Hansen", "20230001", "Datalogi")
-student2 = Student("Lars Nielsen", "20230002", "Økonomi")
-
-student1.add_grade("Python Programmering", 12)
-student1.add_grade("Matematik", 10)
-student1.add_grade("Organisatorisk-teori", 4)
-student1.add_grade("Videnskabsteori", 2)
-
-print(f"{student1.name}s karaktergennemsnit er: {student1.calculate_average():.1f}")
-
-</textarea>
-<button class="run-button" onclick="runPython(document.getElementById('code1.6').value, 'output1.6')">
-  <img src="resources/python-file.png" alt="Python" style="height: 50px;">
-</button>
-<button class="reset-button" onclick="resetPythonGlobals()">
-  <img src="resources/dust.png" alt="Python" style="height: 50px;">
-</button>
-</div>
-<div class="code-output" id="output1.6"></div>
-</div>
-
-## Mini-projekter
-
-- Fælles grundstruktur for alle projekter: Alle projekterne kan opbygges med disse fælles komponenter. 
-  - **Undervisningscase**: *Fremmøderegistrering*
-  - Borgerhenvendelsessystem
-  - Ventelistehåndtering til sundhedsvæsenet
-  - Affaldshåndteringssystem
-  - Tilskudsberegner
-
-I kan, til de sidste workshops eller løbende, selvstændigt udvide jeres systemer baseret på jeres interesse. Forventningen iht. hvad I skal kunne til eksamen, er det I bliver præsenteret for i litteraturen og undervisningen. 
-
-## Fremmøderegistrering
-
-* **PROBLEM**: Vi skal registrere fremmøde for flere elever. 
-* **TEKNISK UDFORDRING**: Uden OOP bliver det hurtigt rodet.
-
----
-
-#### Eksemplet her bliver praktisk umuligt, hvis der er $100+$ elever. 
-
-<div class="code-container">
-<div class="code-input">
-<textarea class="python-editor" id="code1.7">
-
-elev1_navn = "Anna Hansen"
-elev1_klasse = "3A"
-elev1_status = "Tilstede"
-
-elev2_navn = "Mads Nielsen"
-elev2_klasse = "3A"
-elev2_status = "Fraværende"
-
-elev3_navn = "Emma Larsen"
-elev3_klasse = "3B"
-elev3_status = "Tilstede"
-
-# Hvis vi vil udskrive alle:
-print(f"{elev1_navn} fra {elev1_klasse} er {elev1_status}")
-print(f"{elev2_navn} fra {elev2_klasse} er {elev2_status}")
-print(f"{elev3_navn} fra {elev3_klasse} er {elev3_status}")
-
-</textarea>
-<button class="run-button" onclick="runPython(document.getElementById('code1.7').value, 'output1.7')">
-  <img src="resources/python-file.png" alt="Python" style="height: 50px;">
-</button>
-<button class="reset-button" onclick="resetPythonGlobals()">
-  <img src="resources/dust.png" alt="Python" style="height: 50px;">
-</button>
-</div>
-<div class="code-output" id="output1.7"></div>
-</div>
-
-
----
-
-#### Dictionaries gør det nemmere at arbejde med
-
-<div class="code-container">
-<div class="code-input">
-<textarea class="python-editor" id="code1.8">
-
-# dictionaries
-elev1 = {
-    "navn": "Anna Hansen",
-    "klasse": "3A",
-    "status": "Tilstede"
-}
-
-elev2 = {
-    "navn": "Mads Nielsen",
-    "klasse": "3A", 
-    "status": "Fraværende"
-}
-
-# Åbenlyst nemmere at arbejde med
-print(f"{elev1['navn']} fra {elev1['klasse']} er {elev1['status']}")
-
-</textarea>
-<button class="run-button" onclick="runPython(document.getElementById('code1.8').value, 'output1.8')">
-  <img src="resources/python-file.png" alt="Python" style="height: 50px;">
-</button>
-<button class="reset-button" onclick="resetPythonGlobals()">
-  <img src="resources/dust.png" alt="Python" style="height: 50px;">
-</button>
-</div>
-<div class="code-output" id="output1.8"></div>
-</div>
-
----
-
-Lav jeres egne `dictionaries`, der kan anvendes til jeres case
+Downey deler en funktions design i to:
 
 ::: {.incremental}
-- Borgerhenvendelse: `navn, emne, dato`
-- Venteliste: `patient_navn, behandling, prioritet`
-- Affald: `adresse, type, vægt`
-- Tilskud: `navn, type, beløb`
+
+- **Grænsefladen**: hvad funktionen hedder, hvilke parametre den tager, og hvad den skal gøre
+
+- **Implementationen**: hvordan den gør det
+
 :::
+
+<br>
+
+::: {.fragment}
+To funktioner kan have den **samme grænseflade** og helt forskellige implementationer. Det er hele pointen: så kan man skifte det indeni ud uden at røre resten af programmet.
+:::
+
+::: {.fragment}
+I dag designer I grænseflader. Implementationen kommer senere og må gerne blive skiftet ud undervejs.
+:::
+
+## Docstring: grænsefladen skrevet ned
+
+::: {.kode-split}
+
+```{pyodide}
+#| autorun: false
+def andel(antal, i_alt):
+    """Beregn en andel af de ansatte.
+
+    antal: heltal, 0 eller derover, ikke større end i_alt
+    i_alt: heltal større end 0
+    returnerer: et tal mellem 0 og 1
+    """
+    return antal / i_alt
+
+print(andel(84, 120))
+help(andel)
+```
+
+:::
+
+::: {.aside}
+En docstring forklarer **hvad**, ikke hvordan. Fra Downey: har man svært ved at forklare en funktion kort, er grænsefladen sandsynligvis forkert.
+:::
+
+## Præ- og postbetingelser
+
+En grænseflade er en **kontrakt**. Den, der kalder, lover noget om argumenterne (**præbetingelser**). Funktionen lover noget om resultatet (**postbetingelser**).
+
+::: {.kode-split}
+
+```{pyodide}
+#| autorun: false
+def andel(antal, i_alt):
+    """Beregn en andel. Returnerer None, hvis tallene ikke giver mening."""
+    if not isinstance(antal, int) or not isinstance(i_alt, int):
+        print("andel er kun defineret for heltal.")
+        return None
+    if i_alt <= 0:
+        print("Der skal være mindst én ansat.")
+        return None
+    if antal > i_alt:
+        print("Der kan ikke være flere i gruppen end der er ansatte.")
+        return None
+    return antal / i_alt
+
+print(andel(84, 120))
+print(andel(130, 120))
+print(andel(84, 0))
+```
+
+:::
+
+::: {.aside}
+Downey kalder det **input validation**. Bryder den, der kalder, en præbetingelse, ligger fejlen hos kalderen, ikke i funktionen. Det er værd at vide, når man leder efter en fejl.
+:::
+
+# Returværdier
+
+## `print` eller `return`?
+
+::: {.kode-split}
+
+```{pyodide}
+#| autorun: false
+def vis_andel(antal, i_alt):
+    print(antal / i_alt)
+
+def beregn_andel(antal, i_alt):
+    return antal / i_alt
+
+a = vis_andel(84, 120)
+print("vis_andel gav:", a)
+
+b = beregn_andel(84, 120)
+print("beregn_andel gav:", b)
+print("og den kan regnes videre på:", round(b * 100), "procent")
+```
+
+:::
+
+::: {.fragment}
+En funktion uden `return` giver `None`. Den kan vise noget på skærmen, men resultatet kan ikke bruges videre. En funktion, der kun returnerer, kaldes en **ren funktion**.
+:::
+
+## Booleske funktioner
+
+En funktion må gerne returnere `True` eller `False`. Det er en god måde at pakke en indviklet test ind under et navn, man kan læse.
+
+::: {.kode-split}
+
+```{pyodide}
+#| autorun: false
+def er_stor_nok(ansatte):
+    """Er arbejdspladsen med i rapportens grundlag?"""
+    return ansatte >= 50
+
+print(er_stor_nok(120))
+print(er_stor_nok(12))
+
+if er_stor_nok(120):
+    print("Med i barometeret")
+```
+
+:::
+
+::: {.aside}
+Skriv `if er_stor_nok(120):` — ikke `if er_stor_nok(120) == True:`. Sammenligningen er overflødig, for udtrykket **er** allerede sandt eller falsk.
+:::
+
+## Inkrementel udvikling (1)
+
+Tilføj og test lidt kode ad gangen. Start med en funktion, der er færdig — men ikke gør noget endnu.
+
+::: {.kode-split}
+
+```{pyodide}
+#| autorun: false
+def placering(andel, percentiler):
+    """Hvor ligger andelen i fordelingen? Foreløbig: ingen steder."""
+    return "ukendt"
+
+percentiler = {"p25": 0.30, "p50": 0.45, "p75": 0.60}
+print(placering(0.42, percentiler))
+```
+
+:::
+
+::: {.fragment}
+Den gør ingenting — men den **kan kaldes**, og den returnerer noget. Nu kan resten bygges op omkring den, mens den stadig er tom.
+:::
+
+## Inkrementel udvikling (2)
+
+::: {.kode-split}
+
+```{pyodide}
+#| autorun: false
+def placering(andel, percentiler):
+    """Hvor ligger andelen i fordelingen?
+
+    andel: tal mellem 0 og 1
+    percentiler: dictionary med nøglerne p25, p50 og p75
+    returnerer: "lav", "middel" eller "hoej"
+    """
+    if andel < percentiler["p25"]:
+        return "lav"
+    elif andel < percentiler["p75"]:
+        return "middel"
+    else:
+        return "hoej"
+
+for tal in [0.20, 0.42, 0.75]:
+    print(tal, "->", placering(tal, percentiler))
+```
+
+:::
+
+::: {.aside}
+Undervejs havde funktionen `print`-linjer, der viste mellemregningerne. Downey kalder dem **stilladser**: de hjælper, mens man bygger, og fjernes, når det står.
+:::
+
+## Kædet eller indlejret?
+
+:::: {.columns}
+::: {.column width="50%"}
+**Kædet**: med `elif`
+
+```python
+if andel < p25:
+    return "lav"
+elif andel < p75:
+    return "middel"
+else:
+    return "høj"
+```
+:::
+
+::: {.column width="50%"}
+**Indlejret**: `if` inden i `if`
+
+```python
+if andel < p25:
+    return "lav"
+else:
+    if andel < p75:
+        return "middel"
+    else:
+        return "høj"
+```
+:::
+::::
+
+<br>
+
+De gør det samme. Den venstre er nemmere at læse og rækkefølgen betyder noget: kun den **første** sande gren kører.
+
+# Paradigmer
+
+## Sproget vælger ikke for jer
+
+Et **paradigme** er en måde at organisere kode på. De fleste sprog kan flere.
+
+| Sprog | Paradigmer |
+|---|---|
+| **Python** | Objektorienteret, procedureorienteret, funktionsorienteret |
+| **R** | Funktionsorienteret, procedureorienteret |
+| **C** | Procedureorienteret, imperativ |
+| **Java** | Objektorienteret, imperativ |
+| **JavaScript** | Hændelsesdrevet, funktionsorienteret, objektorienteret |
+| **Haskell** | Funktionsorienteret, deklarativ |
+| **Prolog** | Logikbaseret, deklarativ |
+| **SQL** | Deklarativ, mængdebaseret |
+
+<br>
+
+## Procedureorienteret
+
+Trin for trin: man beskriver, hvad maskinen skal gøre, og hvordan dens **tilstand** skal ændre sig.
+
+::: {.kode-split}
+
+```{pyodide}
+#| autorun: false
+arbejdsplads = {"ansatte": 0, "kvinder": 0}      # global tilstand
+
+def ansaet(antal, heraf_kvinder):
+    global arbejdsplads
+    arbejdsplads["ansatte"] = arbejdsplads["ansatte"] + antal
+    arbejdsplads["kvinder"] = arbejdsplads["kvinder"] + heraf_kvinder
+    print(f"Ansat {antal}. Nu {arbejdsplads['ansatte']} ansatte.")
+
+def vis_andel():
+    andel = arbejdsplads["kvinder"] / arbejdsplads["ansatte"]
+    print(f"Kvindeandel: {andel:.0%}")
+```
+
+:::
+
+## Procedureorienteret: brug
+
+::: {.kode-split}
+
+```{pyodide}
+#| autorun: false
+ansaet(100, 40)
+ansaet(20, 15)
+vis_andel()
+```
+
+:::
+
+<br>
+
+**Kør cellen to gange.** Svaret ændrer sig, selvom koden er den samme. Tilstanden ligger uden for funktionerne, og så kan man ikke se på et kald, hvad det giver.
+
+## Funktionsorienteret
+
+Input ind, resultat ud: ingen tilstand, der ændrer sig undervejs. Downeys **rene funktion**, sat i system.
+
+::: {.kode-split}
+
+```{pyodide}
+#| autorun: false
+def andele(arbejdsplads):
+    """Ren funktion: samme input giver altid samme output."""
+    return {
+        "kvinder": arbejdsplads["kvinder"] / arbejdsplads["ansatte"],
+        "seniorer": arbejdsplads["seniorer"] / arbejdsplads["ansatte"],
+    }
+
+skolen = {"ansatte": 120, "kvinder": 84, "seniorer": 26}
+
+print(andele(skolen))
+print(andele(skolen))     # kør cellen igen: samme svar hver gang
+```
+
+:::
+
+## Objektorienteret
+
+Opgaven løses med **objekter**. Et objekt svarer til en forestilling om noget i virkeligheden. Objekter med samme egenskaber samles i **klasser**.
+
+En vigtig del af paradigmet er at skjule, hvordan tingene virker indeni, således implementationen kan ændres, uden at grænsefladen gør det.
+
+<br>
+
+*Fem begreber, vi møder i løbet af kurset:*
+
+1. Klasser og objekter
+2. Attributter og metoder
+3. *Encapsulation* — indkapsling
+4. *Inheritance* — nedarvning
+5. *Polymorphism* — foranderlighed
+
+## Hvorfor: tre arbejdspladser
+
+::: {.kode-split}
+
+```{pyodide}
+#| autorun: false
+plads1_navn, plads1_ansatte, plads1_kvinder = "Skolen", 120, 84
+plads2_navn, plads2_ansatte, plads2_kvinder = "Værket", 240, 31
+plads3_navn, plads3_ansatte, plads3_kvinder = "Rådhuset", 95, 58
+
+print(f"{plads1_navn}: {plads1_kvinder / plads1_ansatte:.0%} kvinder")
+print(f"{plads2_navn}: {plads2_kvinder / plads2_ansatte:.0%} kvinder")
+print(f"{plads3_navn}: {plads3_kvinder / plads3_ansatte:.0%} kvinder")
+```
+
+:::
+
+::: {.aside}
+Forestil jer det samme med 7.225 arbejdspladser.
+:::
+
+## Bedre: dictionaries
+
+::: {.kode-split}
+
+```{pyodide}
+#| autorun: false
+arbejdspladser = [
+    {"navn": "Skolen", "ansatte": 120, "kvinder": 84},
+    {"navn": "Værket", "ansatte": 240, "kvinder": 31},
+    {"navn": "Rådhuset", "ansatte": 95, "kvinder": 58},
+]
+
+for plads in arbejdspladser:
+    print(f"{plads['navn']}: {plads['kvinder'] / plads['ansatte']:.0%} kvinder")
+```
+
+:::
+
+<br>
+
+::: {.fragment}
+Nu er data samlet. Men beregningen ligger stadig i løkken og skal gentages, hver gang nogen får brug for den.
+:::
+
+## En klasse: data og handling samlet
+
+::: {.kode-split}
+
+```{pyodide}
+#| autorun: false
+class Arbejdsplads:
+    def __init__(self, navn, ansatte, kvinder):
+        self.navn = navn
+        self.ansatte = ansatte
+        self.kvinder = kvinder
+
+    def andel_kvinder(self):
+        """Andelen af kvinder blandt de ansatte, som et tal mellem 0 og 1."""
+        return self.kvinder / self.ansatte
+
+    def beskriv(self):
+        return f"{self.navn}: {self.andel_kvinder():.0%} kvinder"
+
+skolen = Arbejdsplads("Skolen", 120, 84)
+print(skolen.beskriv())
+print(skolen.ansatte)              # attribut: noget objektet VED
+print(skolen.andel_kvinder())      # metode: noget objektet KAN
+```
+
+:::
+
+::: {.aside}
+Det er præcis den abstraktion, I laver i øvelse 3: det, arbejdspladsen **ved**, og det, den **kan**.
+:::
+
+## Klassen kan "sige fra"
+
+::: {.kode-split}
+
+```{pyodide}
+#| autorun: false
+class Arbejdsplads:
+    def __init__(self, navn, ansatte, kvinder):
+        if ansatte < 50:
+            raise ValueError("Barometeret dækker kun arbejdspladser med mindst 50 ansatte")
+        if kvinder > ansatte:
+            raise ValueError("Der kan ikke være flere kvinder end ansatte")
+        self.navn = navn
+        self.ansatte = ansatte
+        self.kvinder = kvinder
+
+lille = Arbejdsplads("Kiosken", 12, 7)
+```
+
+:::
+
+::: {.fragment}
+Præbetingelserne fra før nu håndhævet ét sted. Ingen kan lave en `Arbejdsplads`, der bryder reglen fra rapporten. **Det** er indkapsling.
+:::
+
+# Øvelsen: design softwaren
+
+## Resten af dagen
+
+I arbejder i **gruppens fork** fra sidste gang. Alt, I laver, skal committes og pushes, inden I går.
+
+| | Øvelse | Hvor det ender |
+|---|---|---|
+| 2 | Dekomposition | `DESIGN.md` |
+| 3 | Hvad er en arbejdsplads? | `DESIGN.md`, afsnittet *Klasserne* |
+| 4 | Skriv grænsefladerne | `python/barometer.py` |
+| 5 | Få én af dem til at virke | `python/barometer.py` og en notebook |
+
+<br>
+
+::: {.aside}
+Husk arbejdsgangen fra lektion 3: pull, før I begynder. Én ad gangen i den samme fil.
+:::
+
+## Øvelse 2: Dekomposition
+
+<span class="timer" data-time="900"></span>
+
+Del barometeret op i dele, der kan bygges hver for sig. Sigt efter fem til otte.
+
+For hver del, én sætning: **hvad går ind, og hvad kommer ud?**
+
+<br>
+
+- Hvilken del ville I bygge **først**, hvis I kun havde én uge?
+
+- Hvilken del er I mest i tvivl om, at I overhovedet kan bygge?
+
+<br>
+
+::: {.fragment}
+De to spørgsmål har ofte samme svar. Man bygger det usikre først, ikke det nemme.
+:::
+
+## Øvelse 3: Hvad er en arbejdsplads?
+
+<span class="timer" data-time="600"></span>
+
+Skriv i to spalter.
+
+:::: {.columns}
+::: {.column width="50%"}
+**Alt, hvad man kan vide om en arbejdsplads** |
+
+Navn, adresse, CVR, antal ansatte, branche, overskud, kantineordning, sygefravær, cykelparkering …
+:::
+
+::: {.column width="50%"}
+**Det, barometeret har brug for**
+
+<br>
+
+*...*
+:::
+::::
+
+<br>
+
+Det, der står tilbage til højre, er en **abstraktion**. Skriv den ind i `DESIGN.md` under *Klasserne*: hvad `Arbejdsplads` **ved**, og hvad den **kan**.
+
+## Øvelse 4: Skriv grænsefladerne
+
+<span class="timer" data-time="1200"></span>
+
+Lav filen `python/barometer.py` i gruppens repository. Skriv **fem til otte funktioner**, men kun grænsefladerne:
+
+- Et navn, der siger, hvad funktionen gør
+
+- De parametre, den skal bruge
+
+- En docstring: hvad hver parameter er, og hvad der kommer tilbage
+
+- En midlertidig returværdi, så funktionen kan kaldes allerede nu
+
+<br>
+
+```python
+def andel(antal, i_alt):
+    """Beregn en andel af de ansatte.
+
+    antal: heltal mellem 0 og i_alt
+    i_alt: heltal større end 0
+    returnerer: tal mellem 0 og 1
+    """
+    return 0.0
+```
+
+## Øvelse 5: "Kontrakten"
+
+<span class="timer" data-time="600"></span>
+
+Hver gruppe skriver **én** sætning om:
+
+<br>
+
+::: {style="font-size: 1.3em;"}
+> Vi bygger **\_\_\_\_\_**, som gør **\_\_\_\_\_** muligt for **\_\_\_\_\_**.  
+> Vi bygger **ikke** **\_\_\_\_\_**.
+:::
+
+<br>
+
+Så siger kunden ja eller nej. En sætning, jeg kan sige ja til uden at spørge om mere, er en god sætning.
+
+Skriv den i `DESIGN.md`. Commit alt med en besked, der siger hvad — og push.

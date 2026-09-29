@@ -2,9 +2,9 @@
   {
     "objectID": "index.html#dagens-program",
     "href": "index.html#dagens-program",
-    "title": "Programmeringsparadigmer og algoritmer",
+    "title": "Lektion 4",
     "section": "Dagens program",
-    "text": "Dagens program\n\nKodning i en verden med AI …\nSoftware\n\nprogrammering som disciplin.\nHvordan får vi hardwaren til at gøre det vi gerne vil have den til?\nHvilke principper ligger til grund for dette\n\nØvelse i plenum"
+    "text": "Dagens program\n\nSkal vi stadig kode? (…om AI og kode)\nSystemet er/som lag (Kernighan kapitel 6)\nWorkshop (I får en bestilling på et “IT system” fra mig)\nAt designe en funktion (Downey kapitel 4, 5 og 6)\nParadigmer (… den samme opgave løst på tre måder)\nWorkshop øvelse\n\n\nI skriver ikke færdig kode i dag. I skriver grænseflader, altså hvad hver funktion skal hedder, hvad den får ind, og hvad den giver tilbage."
   },
   {
     "objectID": "index.html#python",
@@ -30,28 +30,28 @@
   {
     "objectID": "index.html#data",
     "href": "index.html#data",
-    "title": "Programmeringsparadigmer og algoritmer",
+    "title": "Lektion 4",
     "section": "Data",
     "text": "Data"
   },
   {
     "objectID": "index.html#lagring-af-data",
     "href": "index.html#lagring-af-data",
-    "title": "Programmeringsparadigmer og algoritmer",
+    "title": "Lektion 4",
     "section": "Lagring af data",
     "text": "Lagring af data"
   },
   {
     "objectID": "index.html#abstraktion",
     "href": "index.html#abstraktion",
-    "title": "Programmeringsparadigmer og algoritmer",
+    "title": "Lektion 4",
     "section": "Abstraktion",
     "text": "Abstraktion"
   },
   {
     "objectID": "index.html#algoritmer",
     "href": "index.html#algoritmer",
-    "title": "Programmeringsparadigmer og algoritmer",
+    "title": "Lektion 4",
     "section": "Algoritmer",
     "text": "Algoritmer"
   },
@@ -79,9 +79,9 @@
   {
     "objectID": "index.html#de-blinde-leder-de-blinde",
     "href": "index.html#de-blinde-leder-de-blinde",
-    "title": "Programmeringsparadigmer og algoritmer",
+    "title": "Lektion 4",
     "section": "De blinde leder de blinde",
-    "text": "De blinde leder de blinde\n\nJeg ville heller ikke oversætte en tekst til kinesisk og derefter ukritisk sende den til udgivelse i Kina.\n\nEt læringsperspektiv\nTænk på, hvad Words stavekontrol har gjort for skrivefærdigheder."
+    "text": "De blinde leder de blinde\n\nJeg ville ikke oversætte en tekst til kinesisk (med AI) og derefter helt ukritisk sende den til udgivelse i Kina.\n\n\nEt læringsperspektiv\nTænk på, hvad Words stavekontrol har gjort for skrivefærdigheder.\n\n\nDet er ikke et argument mod at bruge værktøjet. Det er også Kernighans argument (kp 7): man skal kunne læse kode(n)—også den, man ikke selv har skrevet, hvis man skal arbejde “med IT”."
   },
   {
     "objectID": "index.html#python-kodning",
@@ -110,5 +110,355 @@
     "title": "Programmeringsparadigmer og algoritmer",
     "section": "Python programmer (3)",
     "text": "Python programmer (3)\n\nÅben TextEdit [Mac] eller Notepad [Windows]\nSkriv:\n\n\ndef main():\n    \"\"\"Hovedfunktion for simpel lommeregner\"\"\"\n    print(\"Simpel lommeregner - Addition\")\n    print(\"=\" * 30)\n\n    # Bed brugeren om at indtaste to tal\n    tal1 = float(input(\"Indtast det første tal: \"))\n    tal2 = float(input(\"Indtast det andet tal: \"))\n\n    # Beregn summen\n    resultat = tal1 + tal2\n\n    # Vis resultatet\n    print(f\"\\n{tal1} + {tal2} = {resultat}\")\n\n\nif __name__ == \"__main__\":\n    main()\n\n\nGem filen som: lommeregner.py\n\n\n\n\nBemærk: “mellemrummet” under linjen med def main() og if __name__ == \"__main__\": er \\(2\\) tabs og ikke space-mellemrum."
+  },
+  {
+    "objectID": "index.html#litteraturen-og-hvor-den-bruges",
+    "href": "index.html#litteraturen-og-hvor-den-bruges",
+    "title": "Lektion 4",
+    "section": "Litteraturen, og hvor den bruges",
+    "text": "Litteraturen, og hvor den bruges\n\n\n\n\n\n\n\nKapitel\nBruges til\n\n\n\n\nDowney 4 · Functions and Interfaces\nGrænseflade mod implementation, docstrings, præ- og postbetingelser, udviklingsplanen\n\n\nDowney 5 · Conditionals and Recursion\nBooleske udtryk, kædede betingelser, rekursion og base case\n\n\nDowney 6 · Return Values\nreturn mod print, rene funktioner, inkrementel udvikling, validering af input\n\n\nKernighan 6 · Software Systems\nSystemer som lag, styresystem, filsystem, grænseflader\n\n\nKernighan 7 · Learning to Program\nHvorfor man skal kunne læse kode, også når man ikke skriver den selv\n\n\n\n\n\n\nDowney 1–3 er forudsat: variable, sætninger, funktioner, parametre og argumenter."
+  },
+  {
+    "objectID": "index.html#software-er-lag",
+    "href": "index.html#software-er-lag",
+    "title": "Lektion 4",
+    "section": "Software er lag",
+    "text": "Software er lag\nKernighan (kp 6): det, vi kalder “en computer”, er lag af software oven på hinanden. Hvert lag bruger det nedenunder uden at vide, hvordan det virker indeni.\n\nStyresystemet: deler processoren, hukommelsen og disken ud mellem programmerne\nFilsystemet: får en disk med nummererede blokke til at ligne mapper og filer\nApplikationerne: browseren, VS Code, “programmer”\n\n\n\nDet lyder abstrakt, men da I skrev ls i lektion 1, spurgte I ikke disken. I spurgte et lag, der spurgte et lag, der spurgte disken."
+  },
+  {
+    "objectID": "index.html#grænsefladen-mellem-lagene",
+    "href": "index.html#grænsefladen-mellem-lagene",
+    "title": "Lektion 4",
+    "section": "Grænsefladen mellem lagene",
+    "text": "Grænsefladen mellem lagene\nEt lag kan skiftes ud, uden at de andre opdager det: så længe grænsefladen er den samme. Det er derfor, en SSD kan erstatte en harddisk, uden at jeres tekstbehandling skal skrives om.\n\n\nDowney kalder det samme for en interface, bare inde i ét program: hvordan en funktion bruges, adskilt fra hvordan den virker.\nDet er dagens opgave. I skal lægge grænsefladerne fast i barometeret, før nogen skriver en eneste linje, der regner på noget."
+  },
+  {
+    "objectID": "index.html#open-source",
+    "href": "index.html#open-source",
+    "title": "Lektion 4",
+    "section": "Open source",
+    "text": "Open source\nKernighan bruger open source som eksempel på, hvad der sker, når koden er åben. Andre kan læse den, finde fejl i den og bygge videre på den.\n\nI gjorde præcis det sidste gang. I forkede mit repository, ændrede i kopien og sendte ændringen tilbage. Det er sådan, meget udvikling af software foregår."
+  },
+  {
+    "objectID": "index.html#fire-greb",
+    "href": "index.html#fire-greb",
+    "title": "Lektion 4",
+    "section": "Fire greb",
+    "text": "Fire greb\n\nDekomposition: del det store problem op i dele, der kan bygges hver for sig\nMønstergenkendelse: find det, der ligner noget, I har set før\nAbstraktion: smid alt det væk, der ikke betyder noget for opgaven\nAlgoritmedesign: skriv fremgangsmåden ned, trin for trin, uden huller\n\n\n\nDe fire greb er ikke programmering. De er det, man gør inden."
+  },
+  {
+    "objectID": "index.html#bestillingen",
+    "href": "index.html#bestillingen",
+    "title": "Lektion 4",
+    "section": "Bestillingen",
+    "text": "Bestillingen\n\n“Jeg har skrevet en rapport om diversitet på danske arbejdspladser. Nu vil jeg gerne have sådan et online barometer, hvor en virksomhed kan taste sine egne tal ind og se, hvordan de ligger i forhold til andre. Det skal også kunne bruges til at slå ting op. Kan I ikke bygge det?”\n\n\nDet er alt, I får. Det skal ligne en (stiliseret) virkelig bestilling fra en ikke-IT-kyndig kunde …\nHvad er der galt med den? Ikke noget … bortset fra at man ikke kan bygge efter den."
+  },
+  {
+    "objectID": "index.html#reglerne-for-i-dag",
+    "href": "index.html#reglerne-for-i-dag",
+    "title": "Lektion 4",
+    "section": "Reglerne for i dag",
+    "text": "Reglerne for i dag\nJeg er kunden. Jeg har penge og en mening, og jeg ved ikke, hvad jeg vil have.\n\nJeg svarer kun på det, I spørger om. Jeg fortæller ikke noget af mig selv.\nJeg kan godt modsige mig selv. Det opdager I forhåbentlig.\nNogle ting nægter jeg at beslutte. Dem skal I foreslå noget om.\nJeg kan tage fejl om min egen rapport. I har læst den — det er jeres arbejde at sige det.\n\n\n\nAlt, I ikke spørger om i dag, er noget, I selv har besluttet senere. Uden at opdage det."
+  },
+  {
+    "objectID": "index.html#øvelse-1-kravinterviewet",
+    "href": "index.html#øvelse-1-kravinterviewet",
+    "title": "Lektion 4",
+    "section": "Øvelse 1 · Kravinterviewet",
+    "text": "Øvelse 1 · Kravinterviewet\n\nFørst otte minutter i gruppen. Skriv de spørgsmål ned, I vil stille. Prioritér dem — I får ikke tid til dem alle.\n\nHvad skal brugeren kunne gøre bagefter, som de ikke kan i dag?\nHvem er brugeren egentlig? Er der mere end én slags?\nHvilke data findes der overhovedet — og hvad findes der ikke?\nHvad skal systemet ikke kunne?\n\n\n\nDerefter interviewer vi i plenum. Én taler ad gangen, resten skriver ned. Skriv svarene ordret — også dem, der er selvmodsigende."
+  },
+  {
+    "objectID": "index.html#krav-ønske-eller-antagelse",
+    "href": "index.html#krav-ønske-eller-antagelse",
+    "title": "Lektion 4",
+    "section": "Krav, ønske eller antagelse?",
+    "text": "Krav, ønske eller antagelse?\n\nSortér nu alt, I har skrevet ned, i tre bunker.\n\n\n\n\n\n\n\n\n\nBetyder\nEksempel\n\n\n\n\nKrav\nKunden har sagt det, og det er ikke til forhandling\n“Det skal kunne bruges uden at installere noget”\n\n\nØnske\nKunden vil gerne have det, men kan leve uden\n“Det kunne være fint med farver”\n\n\nAntagelse\nVi har fundet på det. Kunden har aldrig sagt det\n“Brugeren kender sin branchekode”\n\n\n\n\n\nAntagelserne er de farlige. Sæt en stjerne ved dem, I er nødt til at få bekræftet, før I bygger noget."
+  },
+  {
+    "objectID": "index.html#grænseflade-og-implementation",
+    "href": "index.html#grænseflade-og-implementation",
+    "title": "Lektion 4",
+    "section": "Grænseflade og implementation",
+    "text": "Grænseflade og implementation\nDowney deler en funktions design i to:\n\nGrænsefladen: hvad funktionen hedder, hvilke parametre den tager, og hvad den skal gøre\nImplementationen: hvordan den gør det\n\n\n\nTo funktioner kan have den samme grænseflade og helt forskellige implementationer. Det er hele pointen: så kan man skifte det indeni ud uden at røre resten af programmet.\n\n\nI dag designer I grænseflader. Implementationen kommer senere og må gerne blive skiftet ud undervejs."
+  },
+  {
+    "objectID": "index.html#docstring-grænsefladen-skrevet-ned",
+    "href": "index.html#docstring-grænsefladen-skrevet-ned",
+    "title": "Lektion 4",
+    "section": "Docstring: grænsefladen skrevet ned",
+    "text": "Docstring: grænsefladen skrevet ned\n\n\n\n\n\n\n\n\n\n\n\n\nEn docstring forklarer hvad, ikke hvordan. Fra Downey: har man svært ved at forklare en funktion kort, er grænsefladen sandsynligvis forkert."
+  },
+  {
+    "objectID": "index.html#præ--og-postbetingelser",
+    "href": "index.html#præ--og-postbetingelser",
+    "title": "Lektion 4",
+    "section": "Præ- og postbetingelser",
+    "text": "Præ- og postbetingelser\nEn grænseflade er en kontrakt. Den, der kalder, lover noget om argumenterne (præbetingelser). Funktionen lover noget om resultatet (postbetingelser).\n\n\n\n\n\n\n\n\n\n\n\n\nDowney kalder det input validation. Bryder den, der kalder, en præbetingelse, ligger fejlen hos kalderen, ikke i funktionen. Det er værd at vide, når man leder efter en fejl."
+  },
+  {
+    "objectID": "index.html#udviklingsplanen",
+    "href": "index.html#udviklingsplanen",
+    "title": "Lektion 4",
+    "section": "Udviklingsplanen",
+    "text": "Udviklingsplanen\nDowney kapitel 4 giver en fremgangsmåde, når man ikke ved på forhånd, hvordan programmet skal deles op:\n\nSkriv et lille program uden funktioner, og få det til at virke\nIndkapsl — find et stykke, der hører sammen, læg det i en funktion, og giv den et navn\nGeneralisér — tilføj en parameter, så funktionen kan mere end ét tilfælde\nGentag\nRefaktorér — reorganisér koden, uden at den skifter opførsel\n\n\n\nAt man refaktorerer, er ikke et tegn på, at man planlagde dårligt. Det er et tegn på, at man har lært noget om problemet undervejs."
+  },
+  {
+    "objectID": "index.html#print-eller-return",
+    "href": "index.html#print-eller-return",
+    "title": "Lektion 4",
+    "section": "print eller return?",
+    "text": "print eller return?\n\n\n\n\n\n\n\n\n\n\n\nEn funktion uden return giver None. Den kan vise noget på skærmen, men resultatet kan ikke bruges videre. En funktion, der kun returnerer, kaldes en ren funktion."
+  },
+  {
+    "objectID": "index.html#booleske-funktioner",
+    "href": "index.html#booleske-funktioner",
+    "title": "Lektion 4",
+    "section": "Booleske funktioner",
+    "text": "Booleske funktioner\nEn funktion må gerne returnere True eller False. Det er en god måde at pakke en indviklet test ind under et navn, man kan læse.\n\n\n\n\n\n\n\n\n\n\n\n\nSkriv if er_stor_nok(120): — ikke if er_stor_nok(120) == True:. Sammenligningen er overflødig, for udtrykket er allerede sandt eller falsk."
+  },
+  {
+    "objectID": "index.html#inkrementel-udvikling-1",
+    "href": "index.html#inkrementel-udvikling-1",
+    "title": "Lektion 4",
+    "section": "Inkrementel udvikling (1)",
+    "text": "Inkrementel udvikling (1)\nTilføj og test lidt kode ad gangen. Start med en funktion, der er færdig — men ikke gør noget endnu.\n\n\n\n\n\n\n\n\n\n\n\nDen gør ingenting — men den kan kaldes, og den returnerer noget. Nu kan resten bygges op omkring den, mens den stadig er tom."
+  },
+  {
+    "objectID": "index.html#inkrementel-udvikling-2",
+    "href": "index.html#inkrementel-udvikling-2",
+    "title": "Lektion 4",
+    "section": "Inkrementel udvikling (2)",
+    "text": "Inkrementel udvikling (2)\n\n\n\n\n\n\n\n\n\n\n\n\nUndervejs havde funktionen print-linjer, der viste mellemregningerne. Downey kalder dem stilladser: de hjælper, mens man bygger, og fjernes, når det står."
+  },
+  {
+    "objectID": "index.html#kædet-eller-indlejret",
+    "href": "index.html#kædet-eller-indlejret",
+    "title": "Lektion 4",
+    "section": "Kædet eller indlejret?",
+    "text": "Kædet eller indlejret?\n\n\nKædet: med elif\nif andel &lt; p25:\n    return \"lav\"\nelif andel &lt; p75:\n    return \"middel\"\nelse:\n    return \"høj\"\n\nIndlejret: if inden i if\nif andel &lt; p25:\n    return \"lav\"\nelse:\n    if andel &lt; p75:\n        return \"middel\"\n    else:\n        return \"høj\"\n\n\nDe gør det samme. Den venstre er nemmere at læse og rækkefølgen betyder noget: kun den første sande gren kører."
+  },
+  {
+    "objectID": "index.html#rekursion-og-base-case",
+    "href": "index.html#rekursion-og-base-case",
+    "title": "Lektion 4",
+    "section": "Rekursion og base case",
+    "text": "Rekursion og base case\nEn funktion må kalde sig selv. Det kræver en base case: en gren, der ikke kalder videre. Ellers kører den for evigt.\nBarometeret får brug for det: mangler den præcise sammenligningsgruppe, må vi prøve en bredere."
+  },
+  {
+    "objectID": "index.html#sproget-vælger-ikke-for-jer",
+    "href": "index.html#sproget-vælger-ikke-for-jer",
+    "title": "Lektion 4",
+    "section": "Sproget vælger ikke for jer",
+    "text": "Sproget vælger ikke for jer\nEt paradigme er en måde at organisere kode på. De fleste sprog kan flere.\n\n\n\n\n\n\n\nSprog\nParadigmer\n\n\n\n\nPython\nObjektorienteret, procedureorienteret, funktionsorienteret\n\n\nR\nFunktionsorienteret, procedureorienteret\n\n\nC\nProcedureorienteret, imperativ\n\n\nJava\nObjektorienteret, imperativ\n\n\nJavaScript\nHændelsesdrevet, funktionsorienteret, objektorienteret\n\n\nHaskell\nFunktionsorienteret, deklarativ\n\n\nProlog\nLogikbaseret, deklarativ\n\n\nSQL\nDeklarativ, mængdebaseret"
+  },
+  {
+    "objectID": "index.html#procedureorienteret",
+    "href": "index.html#procedureorienteret",
+    "title": "Lektion 4",
+    "section": "Procedureorienteret",
+    "text": "Procedureorienteret\nTrin for trin: man beskriver, hvad maskinen skal gøre, og hvordan dens tilstand skal ændre sig."
+  },
+  {
+    "objectID": "index.html#procedureorienteret-brug",
+    "href": "index.html#procedureorienteret-brug",
+    "title": "Lektion 4",
+    "section": "Procedureorienteret: brug",
+    "text": "Procedureorienteret: brug\n\n\n\n\n\n\n\n\n\n\n\nKør cellen to gange. Svaret ændrer sig, selvom koden er den samme. Tilstanden ligger uden for funktionerne, og så kan man ikke se på et kald, hvad det giver."
+  },
+  {
+    "objectID": "index.html#funktionsorienteret",
+    "href": "index.html#funktionsorienteret",
+    "title": "Lektion 4",
+    "section": "Funktionsorienteret",
+    "text": "Funktionsorienteret\nInput ind, resultat ud: ingen tilstand, der ændrer sig undervejs. Downeys rene funktion, sat i system."
+  },
+  {
+    "objectID": "index.html#logikbaseret",
+    "href": "index.html#logikbaseret",
+    "title": "Lektion 4",
+    "section": "Logikbaseret",
+    "text": "Logikbaseret\nMan beskriver, hvad der er sandt, og lader maskinen finde ud af resten. Ingen løkker, ingen rækkefølge.\nforælder(anna, bo).\nforælder(bo, cecilie).\n\nbedsteforælder(X, Z) :- forælder(X, Y), forælder(Y, Z).\nSpørger man bedsteforælder(anna, Z), svarer Prolog Z = cecilie. Ingen har fortalt den hvordan.\n\n\n\nI møder ikke Prolog på kurset. Men I møder den deklarative tankegang igen i SQL: man beder om hvad man vil have, ikke hvordan det skal findes."
+  },
+  {
+    "objectID": "index.html#objektorienteret",
+    "href": "index.html#objektorienteret",
+    "title": "Lektion 4",
+    "section": "Objektorienteret",
+    "text": "Objektorienteret\nOpgaven løses med objekter. Et objekt svarer til en forestilling om noget i virkeligheden. Objekter med samme egenskaber samles i klasser.\nEn vigtig del af paradigmet er at skjule, hvordan tingene virker indeni, således implementationen kan ændres, uden at grænsefladen gør det.\n\nFem begreber, vi møder i løbet af kurset:\n\nKlasser og objekter\nAttributter og metoder\nEncapsulation — indkapsling\nInheritance — nedarvning\nPolymorphism — foranderlighed"
+  },
+  {
+    "objectID": "index.html#hvorfor-tre-arbejdspladser",
+    "href": "index.html#hvorfor-tre-arbejdspladser",
+    "title": "Lektion 4",
+    "section": "Hvorfor: tre arbejdspladser",
+    "text": "Hvorfor: tre arbejdspladser\n\n\n\n\n\n\n\n\n\n\n\n\nForestil jer det samme med 7.225 arbejdspladser."
+  },
+  {
+    "objectID": "index.html#bedre-dictionaries",
+    "href": "index.html#bedre-dictionaries",
+    "title": "Lektion 4",
+    "section": "Bedre: dictionaries",
+    "text": "Bedre: dictionaries\n\n\n\n\n\n\n\n\n\n\n\n\nNu er data samlet. Men beregningen ligger stadig i løkken og skal gentages, hver gang nogen får brug for den."
+  },
+  {
+    "objectID": "index.html#en-klasse-data-og-handling-samlet",
+    "href": "index.html#en-klasse-data-og-handling-samlet",
+    "title": "Lektion 4",
+    "section": "En klasse: data og handling samlet",
+    "text": "En klasse: data og handling samlet\n\n\n\n\n\n\n\n\n\n\n\n\nDet er præcis den abstraktion, I laver i øvelse 3: det, arbejdspladsen ved, og det, den kan."
+  },
+  {
+    "objectID": "index.html#klassen-kan-sige-fra",
+    "href": "index.html#klassen-kan-sige-fra",
+    "title": "Lektion 4",
+    "section": "Klassen kan “sige fra”",
+    "text": "Klassen kan “sige fra”\n\n\n\n\n\n\n\n\n\n\n\nPræbetingelserne fra før nu håndhævet ét sted. Ingen kan lave en Arbejdsplads, der bryder reglen fra rapporten. Det er indkapsling."
+  },
+  {
+    "objectID": "index.html#resten-af-dagen",
+    "href": "index.html#resten-af-dagen",
+    "title": "Lektion 4",
+    "section": "Resten af dagen",
+    "text": "Resten af dagen\nI arbejder i gruppens fork fra sidste gang. Alt, I laver, skal committes og pushes, inden I går.\n\n\n\n\nØvelse\nHvor det ender\n\n\n\n\n2\nDekomposition\nDESIGN.md\n\n\n3\nHvad er en arbejdsplads?\nDESIGN.md, afsnittet Klasserne\n\n\n4\nSkriv grænsefladerne\npython/barometer.py\n\n\n5\nFå én af dem til at virke\npython/barometer.py og en notebook\n\n\n\n\n\n\nHusk arbejdsgangen fra lektion 3: pull, før I begynder. Én ad gangen i den samme fil."
+  },
+  {
+    "objectID": "index.html#øvelse-2-dekomposition",
+    "href": "index.html#øvelse-2-dekomposition",
+    "title": "Lektion 4",
+    "section": "Øvelse 2: Dekomposition",
+    "text": "Øvelse 2: Dekomposition\n\nDel barometeret op i dele, der kan bygges hver for sig. Sigt efter fem til otte.\nFor hver del, én sætning: hvad går ind, og hvad kommer ud?\n\n\nHvilken del ville I bygge først, hvis I kun havde én uge?\nHvilken del er I mest i tvivl om, at I overhovedet kan bygge?\n\n\n\nDe to spørgsmål har ofte samme svar. Man bygger det usikre først, ikke det nemme."
+  },
+  {
+    "objectID": "index.html#øvelse-3-hvad-er-en-arbejdsplads",
+    "href": "index.html#øvelse-3-hvad-er-en-arbejdsplads",
+    "title": "Lektion 4",
+    "section": "Øvelse 3: Hvad er en arbejdsplads?",
+    "text": "Øvelse 3: Hvad er en arbejdsplads?\n\nSkriv i to spalter.\n\n\nAlt, hvad man kan vide om en arbejdsplads |\nNavn, adresse, CVR, antal ansatte, branche, overskud, kantineordning, sygefravær, cykelparkering …\n\nDet, barometeret har brug for\n\n…\n\n\nDet, der står tilbage til højre, er en abstraktion. Skriv den ind i DESIGN.md under Klasserne: hvad Arbejdsplads ved, og hvad den kan."
+  },
+  {
+    "objectID": "index.html#øvelse-4-skriv-grænsefladerne",
+    "href": "index.html#øvelse-4-skriv-grænsefladerne",
+    "title": "Lektion 4",
+    "section": "Øvelse 4: Skriv grænsefladerne",
+    "text": "Øvelse 4: Skriv grænsefladerne\n\nLav filen python/barometer.py i gruppens repository. Skriv fem til otte funktioner, men kun grænsefladerne:\n\nEt navn, der siger, hvad funktionen gør\nDe parametre, den skal bruge\nEn docstring: hvad hver parameter er, og hvad der kommer tilbage\nEn midlertidig returværdi, så funktionen kan kaldes allerede nu\n\n\ndef andel(antal, i_alt):\n    \"\"\"Beregn en andel af de ansatte.\n\n    antal: heltal mellem 0 og i_alt\n    i_alt: heltal større end 0\n    returnerer: tal mellem 0 og 1\n    \"\"\"\n    return 0.0"
+  },
+  {
+    "objectID": "index.html#øvelse-4-to-spørgsmål-til-hver-funktion",
+    "href": "index.html#øvelse-4-to-spørgsmål-til-hver-funktion",
+    "title": "Lektion 4",
+    "section": "Øvelse 4 · to spørgsmål til hver funktion",
+    "text": "Øvelse 4 · to spørgsmål til hver funktion\n\nKan I forklare den på én linje? Kan I ikke det, er grænsefladen sandsynligvis forkert. Del den op.\nReturnerer den noget, eller printer den? Funktioner, der regner, skal returnere. Kun den yderste del af programmet printer.\n\n\n\nFordel funktionerne mellem jer, og lav et Issue pr. funktion. Så kan I arbejde uden at sidde i den samme fil."
+  },
+  {
+    "objectID": "index.html#øvelse-5-få-én-af-dem-til-at-virke",
+    "href": "index.html#øvelse-5-få-én-af-dem-til-at-virke",
+    "title": "Lektion 4",
+    "section": "Øvelse 5 · Få én af dem til at virke",
+    "text": "Øvelse 5 · Få én af dem til at virke\n\nVælg én funktion, og gør den færdig med Downeys fremgangsmåde:\n\nStart fra jeres tomme udgave, og kontrollér, at den kan kaldes\nTilføj et lille stykke ad gangen, og sæt print ind undervejs, så I kan se mellemregningerne\nTest med værdier, hvor I kender det rigtige svar\nFjern stilladserne, når den virker\n\n\n\nLav notebooken proev-design.ipynb i roden af repositoriet, og afprøv jeres funktioner derfra:\nfrom python.barometer import andel\nprint(andel(84, 120))"
+  },
+  {
+    "objectID": "index.html#øvelse-6-kontraktmødet",
+    "href": "index.html#øvelse-6-kontraktmødet",
+    "title": "Lektion 4",
+    "section": "Øvelse 6 · Kontraktmødet",
+    "text": "Øvelse 6 · Kontraktmødet\n\nHver gruppe skriver én sætning på tavlen:\n\n\n\nVi bygger _____, som gør _____ muligt for _____.\nVi bygger ikke _____.\n\n\n\nSå siger kunden ja eller nej. En sætning, jeg kan sige ja til uden at spørge om mere, er en god sætning.\n\nSkriv den i DESIGN.md. Commit alt med en besked, der siger hvad — og push."
+  },
+  {
+    "objectID": "index.html#det-i-går-hjem-med",
+    "href": "index.html#det-i-går-hjem-med",
+    "title": "Lektion 4",
+    "section": "Det, I går hjem med",
+    "text": "Det, I går hjem med\n\nEn liste over krav, ønsker og antagelser — med stjerne ved dem, der skal bekræftes\nBarometeret delt op i dele, der kan bygges hver for sig\nEn abstraktion af en arbejdsplads i DESIGN.md\nEn fil med grænseflader: navne, parametre, docstrings — og én funktion, der virker\nEn sætning, kunden sagde ja til\n\n\n\nDet er ikke et program endnu. Men det er noget, man kan bygge et program efter — og det er præcis forskellen på i dag og i går."
+  },
+  {
+    "objectID": "index.html#til-næste-gang",
+    "href": "index.html#til-næste-gang",
+    "title": "Lektion 4",
+    "section": "Til næste gang",
+    "text": "Til næste gang\n\nDowney kapitel 4, 5 og 6, hvis I ikke nåede dem. Lav øvelserne bagest i kapitlerne — især hypot og is_between, som er den samme fremgangsmåde, I brugte i øvelse 5\nKernighan kapitel 6 og 7\nTjek, at DESIGN.md og python/barometer.py er pushet til gruppens fork"
+  },
+  {
+    "objectID": "index.html#litteraturen-til-idag-og-hvor-den-bruges",
+    "href": "index.html#litteraturen-til-idag-og-hvor-den-bruges",
+    "title": "Lektion 4",
+    "section": "Litteraturen til idag, og hvor den bruges",
+    "text": "Litteraturen til idag, og hvor den bruges\n\n\n\n\n\n\n\nKapitel\nBruges til\n\n\n\n\nDowney kp. 4: Functions and Interfaces\nGrænseflade mod implementation, docstrings, præ- og postbetingelser, udviklingsplanen\n\n\nDowney kp. 5: Conditionals and Recursion\nBooleske udtryk, kædede betingelser, rekursion og base case\n\n\nDowney kp. 6: Return Values\nreturn mod print, rene funktioner, inkrementel udvikling, validering af input\n\n\nKernighan kp. 6: Software Systems\nSystemer som lag, styresystem, filsystem, grænseflader\n\n\nKernighan kp. 7: Learning to Program\nHvorfor man skal kunne læse kode, også når man ikke skriver den selv"
+  },
+  {
+    "objectID": "index.html#øvelse-1-kravspecifikation-interviewet",
+    "href": "index.html#øvelse-1-kravspecifikation-interviewet",
+    "title": "Lektion 4",
+    "section": "Øvelse 1: Krav/specifikation-interviewet",
+    "text": "Øvelse 1: Krav/specifikation-interviewet\n\nFørste arbejde i gruppen. Skriv de spørgsmål ned, I vil stille. Prioritér dem, som om I ikke får tid til dem alle.\n\nHvad skal brugeren kunne gøre bagefter, som de ikke kan i dag?\nHvem er brugeren egentlig? Er der mere end én slags?\nHvad skal systemet ikke kunne?\n\n\nDerefter “interviewer” vi i plenum."
+  },
+  {
+    "objectID": "index.html#software-er-lag-1",
+    "href": "index.html#software-er-lag-1",
+    "title": "Lektion 4",
+    "section": "Software er lag",
+    "text": "Software er lag\nKernighan kapitel 6: det, vi kalder “en computer”, er lag af software oven på hinanden. Hvert lag bruger det nedenunder uden at vide, hvordan det virker indeni.\n\nStyresystemet — deler processoren, hukommelsen og disken ud mellem programmerne, og bestemmer, hvem der må hvad\nFilsystemet — får en disk med nummererede blokke til at ligne mapper og filer\nApplikationerne — browseren, VS Code, barometeret\n\n\n\nDet lyder abstrakt. Så lad os tage én kommando, I allerede har skrevet."
+  },
+  {
+    "objectID": "index.html#ls",
+    "href": "index.html#ls",
+    "title": "Lektion 4",
+    "section": "ls",
+    "text": "ls\n\nTerminalen er et vindue, der kan vise tekst. Den kan ikke læse en disk. Den giver linjen videre til skallen/shell (zsh på Mac, PowerShell på Windows.)\nSkallen finder programmet ls og beder styresystemet om at starte det.\nls spørger styresystemet: giv mig indholdet af den her mappe. Det kaldes et systemkald. ls rører aldrig disken selv: det har den ikke lov til.\nStyresystemet tjekker først, om I må læse mappen. Så spørger det filsystemet som ved, at mappen står i blok 4711.\nDriveren oversætter giv mig blok 4711 til det, netop denne disk forstår.\nSSD’ens egen controller ved, hvilke fysiske celler blok 4711 ligger i lige nu."
+  },
+  {
+    "objectID": "index.html#turen-ned",
+    "href": "index.html#turen-ned",
+    "title": "Lektion 4",
+    "section": "Turen ned",
+    "text": "Turen ned\n\nTerminalen er et vindue, der kan vise tekst. Den kan ikke læse en disk. Den giver linjen videre til skallen — zsh på Mac, PowerShell på Windows.\nSkallen finder programmet ls og beder styresystemet om at starte det.\nls spørger styresystemet: giv mig indholdet af den her mappe. Det kaldes et systemkald. ls rører aldrig disken selv — det har den ikke lov til.\nStyresystemet tjekker først, om I må læse mappen. Så spørger det filsystemet — APFS, NTFS eller ext4 — som ved, at mappen står i blok 4711.\nDriveren oversætter giv mig blok 4711 til det, netop denne disk forstår.\nSSD’ens egen controller ved, hvilke fysiske celler blok 4711 ligger i lige nu. Den flytter dem løbende rundt, fordi flash slides op. Ingen ovenover opdager det."
+  },
+  {
+    "objectID": "index.html#turen-op-igen",
+    "href": "index.html#turen-op-igen",
+    "title": "Lektion 4",
+    "section": "Turen op igen",
+    "text": "Turen op igen\nSvaret kommer tilbage gennem de samme fem lag. ls sorterer navnene og skriver dem ud. Terminalen tegner dem som pixels.\n\n\nFem lag og et systemkald — for at se, hvad der ligger i en mappe.\n\n\nOg ls ved stadig ikke, om jeres computer har en SSD, en gammel harddisk eller et netværksdrev. Den har aldrig spurgt."
+  },
+  {
+    "objectID": "index.html#hvorfor-det-er-bygget-sådan",
+    "href": "index.html#hvorfor-det-er-bygget-sådan",
+    "title": "Lektion 4",
+    "section": "Hvorfor det er bygget sådan",
+    "text": "Hvorfor det er bygget sådan\n… det er præcis det, I skal gøre om lidt i det små. Vi skriver andel() sådan, at den, der bruger den, ikke behøver vide, hvordan den regner."
+  },
+  {
+    "objectID": "index.html#grænsefladen-mellem-lagene-1",
+    "href": "index.html#grænsefladen-mellem-lagene-1",
+    "title": "Lektion 4",
+    "section": "Grænsefladen mellem lagene",
+    "text": "Grænsefladen mellem lagene\nForestil jer, at I har et program, der skal gemme en tekstfil.\nProgrammet skal vide hvordan det beder computeren om at gemme filen, men det behøver ikke vide, hvordan computeren fysisk gemmer data på en SSD eller en harddisk.\nEn grænseflade er den fælles aftale mellem to dele af et system. Aftalen fortæller helt konkret:\n\nHvilke oplysninger skal den ene del sende til den anden?\nHvilken handling kan den bede den anden del om at udføre?\nHvilket resultat kan den forvente at få tilbage?\n\nGrænsefladen bestemmer altså, hvordan to dele samarbejder, ikke hvordan de hver især fungerer indeni."
+  },
+  {
+    "objectID": "index.html#et-konkret-eksempel",
+    "href": "index.html#et-konkret-eksempel",
+    "title": "Lektion 4",
+    "section": "Et konkret eksempel",
+    "text": "Et konkret eksempel\nEt tekstbehandlingsprogram beder operativsystemet om at gemme en fil. Operativsystemet sørger for, at dataene bliver gemt på en lagerenhed.\n\nTekstbehandlingen leverer filens indhold og oplysninger om, hvor den skal gemmes.\nGrænsefladen definerer, hvordan anmodningen skal formuleres, og hvordan programmet får besked om resultatet.\nLagerenheden sørger for den fysiske lagring.\n\nTekstbehandlingen behøver ikke kende de tekniske detaljer om lagerenheden. Den skal blot bruge grænsefladen korrekt."
+  },
+  {
+    "objectID": "index.html#hvad-hvis-vi-skifter-harddisken-ud-med-en-ssd",
+    "href": "index.html#hvad-hvis-vi-skifter-harddisken-ud-med-en-ssd",
+    "title": "Lektion 4",
+    "section": "Hvad hvis vi skifter harddisken ud med en SSD?",
+    "text": "Hvad hvis vi skifter harddisken ud med en SSD?\nDet afgørende er ikke, om de to enheder fungerer fysisk på samme måde. Det gør de ikke nødvendigvis.\nDet afgørende er, at operativsystemet stadig kan kommunikere med den nye enhed gennem de relevante grænseflader og drivere.\nNår aftalen stadig overholdes, behøver de øvrige lag ikke nødvendigvis at blive ændret."
+  },
+  {
+    "objectID": "index.html#det-samme-princip-gælder-inde-i-et-python-program",
+    "href": "index.html#det-samme-princip-gælder-inde-i-et-python-program",
+    "title": "Lektion 4",
+    "section": "Det samme princip gælder inde i et Python-program",
+    "text": "Det samme princip gælder inde i et Python-program\nPython funktioner som et interface.\n\nForestil jer en funktion, der beregner gennemsnittet af en liste med tal. Dens grænseflade fortæller os, hvordan vi kalder funktionen, hvilke argumenter den forventer, og hvad den returnerer.\nVi behøver ikke kende den interne kode for at bruge den. Og hvis vi ændrer den interne beregning, kan resten af programmet fortsat fungere, så længe grænsefladen og funktionens forventede adfærd bevares.\n\n\nDet er dagens opgave: I skal først aftale grænsefladerne i jeres barometer. Hvilke oplysninger modtager hvert lag? Hvad skal det levere videre? Og hvad lover laget at gøre?\nFørst derefter (senere på kurset) skriver I koden, der udfører beregningerne."
+  },
+  {
+    "objectID": "index.html#øvelse-5-kontrakten",
+    "href": "index.html#øvelse-5-kontrakten",
+    "title": "Lektion 4",
+    "section": "Øvelse 5: “Kontrakten”",
+    "text": "Øvelse 5: “Kontrakten”\n\nHver gruppe skriver én sætning om:\n\n\n\nVi bygger _____, som gør _____ muligt for _____.\nVi bygger ikke _____.\n\n\n\nSå siger kunden ja eller nej. En sætning, jeg kan sige ja til uden at spørge om mere, er en god sætning.\nSkriv den i DESIGN.md. Commit alt med en besked, der siger hvad — og push."
   }
 ]

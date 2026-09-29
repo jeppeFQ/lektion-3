@@ -8,7 +8,6 @@ format:
   live-revealjs:
     css:
       - resources/kode-layout.css
-      - resources/slides.css
     include-after-body: "resources/timer.html"
     navigation-mode: linear
     slide-number: c
@@ -148,7 +147,7 @@ Svaret kommer tilbage gennem de samme fem lag. `ls` sorterer navnene og skriver 
 - Det er altså fem lag og et systemkald for at se, hvad der ligger i en mappe.
 
 - ... `ls` ved stadig ikke, om jeres computer har en SSD, en gammel harddisk eller et netværksdrev. Det er ikke nødvendigt. 
-:::
+
 
 ## Hvorfor det er bygget sådan
 
@@ -186,21 +185,7 @@ Kernighan bruger open source som eksempel på, hvad der sker, når koden er åbe
 
 I gjorde præcis det sidste gang. I forkede mit repository, ændrede i kopien og sendte ændringen tilbage. Det er sådan, meget udvikling af software foregår.
 
-## Grænsefladen mellem lagene
-
-Forestil jer, at I har et program, der skal gemme en tekstfil.
-
-Programmet skal vide **hvordan det beder computeren om at gemme filen**, men det behøver ikke vide, hvordan computeren fysisk gemmer data på en SSD eller en harddisk.
-
-En grænseflade er den **fælles aftale mellem to dele af et system**. Aftalen fortæller helt konkret:
-
-* Hvilke oplysninger skal den ene del sende til den anden?
-* Hvilken handling kan den bede den anden del om at udføre?
-* Hvilket resultat kan den forvente at få tilbage?
-
-Grænsefladen bestemmer altså, **hvordan to dele samarbejder, ikke hvordan de hver især fungerer indeni**.
-
-## Det samme princip gælder inde i et Python-program
+## Det samme princip gælder inde i en Python-funktion
 
 Python funktioner som et *interface*.
 
@@ -209,7 +194,7 @@ Python funktioner som et *interface*.
 - Vi behøver ikke kende den interne kode for at bruge den. Og hvis vi ændrer den interne beregning, kan resten af programmet fortsat fungere, så længe grænsefladen og funktionens forventede adfærd bevares.
 
 ::: {.fragment}
-**Det er dagens opgave:** I skal først aftale grænsefladerne i jeres barometer. Hvilke oplysninger modtager hvert lag? Hvad skal det levere videre? Og hvad lover laget at gøre?
+**Det er dagens opgave:** I skal aftale grænsefladerne i jeres barometer. Hvilke oplysninger modtager hvert lag? Hvad skal det levere videre? Og hvad skal laget gøre?
 
 Først derefter (senere på kurset) skriver I koden, der udfører beregningerne.
 :::

@@ -510,69 +510,6 @@ Et **paradigme** er en måde at organisere kode på. De fleste sprog kan flere.
 
 <br>
 
-## Procedureorienteret
-
-Trin for trin: man beskriver, hvad maskinen skal gøre, og hvordan dens **tilstand** skal ændre sig.
-
-::: {.kode-split}
-
-```{pyodide}
-#| autorun: false
-arbejdsplads = {"ansatte": 0, "kvinder": 0}      # global tilstand
-
-def ansaet(antal, heraf_kvinder):
-    global arbejdsplads
-    arbejdsplads["ansatte"] = arbejdsplads["ansatte"] + antal
-    arbejdsplads["kvinder"] = arbejdsplads["kvinder"] + heraf_kvinder
-    print(f"Ansat {antal}. Nu {arbejdsplads['ansatte']} ansatte.")
-
-def vis_andel():
-    andel = arbejdsplads["kvinder"] / arbejdsplads["ansatte"]
-    print(f"Kvindeandel: {andel:.0%}")
-```
-
-:::
-
-## Procedureorienteret: brug
-
-::: {.kode-split}
-
-```{pyodide}
-#| autorun: false
-ansaet(100, 40)
-ansaet(20, 15)
-vis_andel()
-```
-
-:::
-
-<br>
-
-**Kør cellen to gange.** Svaret ændrer sig, selvom koden er den samme. Tilstanden ligger uden for funktionerne, og så kan man ikke se på et kald, hvad det giver.
-
-## Funktionsorienteret
-
-Input ind, resultat ud: ingen tilstand, der ændrer sig undervejs. Downeys **rene funktion**, sat i system.
-
-::: {.kode-split}
-
-```{pyodide}
-#| autorun: false
-def andele(arbejdsplads):
-    """Ren funktion: samme input giver altid samme output."""
-    return {
-        "kvinder": arbejdsplads["kvinder"] / arbejdsplads["ansatte"],
-        "seniorer": arbejdsplads["seniorer"] / arbejdsplads["ansatte"],
-    }
-
-skolen = {"ansatte": 120, "kvinder": 84, "seniorer": 26}
-
-print(andele(skolen))
-print(andele(skolen))     # kør cellen igen: samme svar hver gang
-```
-
-:::
-
 ## Objektorienteret
 
 Opgaven løses med **objekter**. Et objekt svarer til en forestilling om noget i virkeligheden. Objekter med samme egenskaber samles i **klasser**.
